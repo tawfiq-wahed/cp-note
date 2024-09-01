@@ -1,0 +1,5292 @@
+1.multiple with loop:
+#include<stdio.h>
+int main(){
+int n;
+scanf("%d",&n);
+int i=1;
+while(i<=10){
+    printf("%d\n",n*i);
+    i++;
+}
+}
+
+
+2.digit.something with loop:
+#include<stdio.h>
+int main(){
+int i=1;
+while(i<=10){
+    printf("%d.sorry\n",i);
+    i++;
+}
+}
+
+
+
+
+
+3.first 100 odd or even number detect:
+#include<stdio.h>
+int main(){
+    int a;
+    scanf("%d",&a);
+    int even=2;
+for(int i=1;i<=a;i++)
+{
+    printf("%d",even);
+    even=even+2;
+
+}
+}
+
+
+
+
+
+4.1+2+3+4+5
+#include<stdio.h>
+int main(){
+    int a;
+    scanf("%d",&a);
+    for(int i=1;i<=a;i++)
+     if(i<a){
+        printf("%d+",i);
+    }
+    else
+        {
+            printf("%d",i);
+        }
+    }
+
+
+
+
+
+5.power math:
+#include<stdio.h>
+#include<stdio.h>
+int main(){
+    int a;
+    scanf("%d",&a);
+    for(int i=1;i<=a;i++)
+     {
+         int x= pow(2,i);
+         printf("%d\n",x);
+     }
+    }
+
+
+
+
+6.function build:
+#include<stdio.h>
+int tawfiq(){
+  return 10008;
+}
+int main(){
+int s=tawfiq();
+printf("%d",s);
+
+}
+
+
+
+
+
+
+7.factorial of nth times by loop with function:
+#include<stdio.h>
+int fact(int x){
+    int fact=1;
+for(int i=1;i<=x;i++)
+    {
+        fact*=i;
+    }
+    return fact;
+}
+int main(){
+for(int j=1;j<=15;j++)
+{
+    printf("%d\n",fact(j));
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+8,factorial nth times by 2 loop :
+#include<stdio.h>
+
+
+int main(){
+int n=15;
+for(int j=1;j<=n;j++)
+{int fact=1;
+    for(int i=1;i<=15;i++) //aii line e i=j likhle code run hobe factorial er r nahoi  joto digit dibo oi digit diye gun hoiye jabe
+    {
+      fact*=i;
+
+//aikhane printf likhle joto factorial bahir hoi j digit er disi oitar tobe er upor er loop er jonno bar bar repeat hoi
+}
+printf("%d\n",fact);
+}
+}
+//akta loop diye factorial 9 no example r duita loop er ta hoilo aita
+
+//print fact jei loop e thakbe oi loop er databas ortath i othoba j teh fact bahir kora lagbe jodio fact er kaj onno loop e
+
+
+
+
+
+
+9.factorial nth with single loop :
+#include<stdio.h>
+
+int main(){
+int fact=1;
+    for(int i=1;i<=10;i++)
+    {
+      fact*=i;
+
+
+printf("%d\n",fact);
+}
+}
+ 9no problem e int fact=1 age declare korle ortath loop er age declare korle factorial bahir hoi .loop er bethor declare korle only number print hoi
+
+
+
+
+
+
+10.
+only for 1ta digit er factorial:
+#include<stdio.h>
+
+int main(){
+int fact=1;
+    for(int i=1;i<=10;i++)
+    {
+      fact*=i;
+
+
+
+}
+printf("%d\n",fact);
+}
+
+
+
+//loop er kaj age hoi loop er kaj shes kore loop er theke tarpor bahir hoi tai loop er bahir e printf dile pura total jog ba gunfol dei
+
+
+
+
+
+
+11.
+function basics:
+show a sentance by function:
+
+
+#include<stdio.h>
+void alif(){
+printf("hello world!");
+}
+
+int main(){
+alif();
+return 0;
+
+}
+
+
+
+
+
+
+12.show integer value by function
+#include<stdio.h>
+float alif(){
+return 10.4;
+}
+int main(){
+float s=alif();
+printf("%f",s);
+       }
+
+
+
+
+
+
+
+13.sum by function:
+#include<stdio.h>
+float sum(int x,float y)
+{
+    return x+y;
+}
+int main()
+{ int a=4;
+float b=5.9876;
+float s=sum(a,b);
+printf("%f",s);
+return 0;
+}
+
+
+
+
+
+
+
+
+14.
+factorial of only a number by recursion:
+#include<stdio.h>
+int fact(int x){
+    int fact=1;
+ for(int i=1;i<=x;i++){
+fact*=i;
+
+ }
+return fact;
+}
+
+int main(){
+    int a=5;
+
+printf("%d",fact(a));
+return 0;
+}
+
+
+//fact loop er age declare korle loop er bahire return ba print dile total akta digit er factorial bahir hoi.
+
+
+
+
+
+
+
+
+15.
+nth factorial of many number by recursion:
+
+
+#include<stdio.h>
+int fact(int x){
+    int fact=1;
+ for(int i=1;i<=x;i++){
+fact*=i;
+
+ }
+return fact;
+}
+
+int main(){
+    int a=5;
+
+printf("%d",fact(a));
+return 0;
+}
+
+//aikhane database e asif er poriborte fact use kora useful.
+
+
+
+16.amnstrong number by logarithom:
+
+
+
+#include<stdio.h>
+#include<math.h>
+int main(){
+int n,x,y,z;
+scanf("%d",&n);
+int l=(int)log10(n);
+l++;
+printf("%d\n",l);
+int temp=n;
+ x=(int)temp/100;
+temp=(int)temp%100;
+y=(int)temp/10;
+ z=temp%10;
+printf("%d %d %d\n",x,y,z);
+int check=(pow(x,l)+pow(y,l)+pow(z,l));
+printf("%d\n",check);
+if(n==check){
+    printf("this is an amnstrong number");
+}
+else{
+    printf("this is not an amnstrong number");
+}
+
+
+return 0;
+
+
+}
+
+
+
+17.recursion problem:
+
+
+#include<stdio.h>
+int atik(int n){
+    if(n==0){
+            return 0;     //return 0 o dite parbo return 1 o dewa jabe jekono digit(7,8,9) return dewa jai
+    }
+
+printf("hello world\n");
+  atik(n-1); }
+
+int main(){
+    int a=10;
+atik(a);
+return 0;
+
+}
+
+
+18.print nth number by recursion:
+#include<stdio.h>
+int atik(int n){
+    if(n==51){          //aikhane n =joto dibo and return dibo oi n value ta print  hobe nh.
+            return 8;
+    }
+
+printf("%d\n",n);
+  atik(n+1); }
+
+int main(){
+    int a=1;
+atik(a);
+return 0;
+
+}
+
+19.sum by recursion:
+#include<stdio.h>
+int atik(int n){   //aikhane n er poriborte a diye o kora jai
+    if(n==11){return 0;}
+  return atik(n+1)+n; }
+
+int main(){
+    int a=1;
+atik(a);
+int sum= atik(a+1)+a;
+printf("%d\n",sum);
+return 0;
+
+}
+
+20.n=12312 calculate the digit sum:
+#include<stdio.h>
+int fun(int n)
+{if(n<10){
+return n;
+}
+
+
+return fun(n/10)+fun(n%10);
+
+
+}
+
+int main ()
+{int n=12312;
+int sum=fun(n);
+printf("%d",sum);
+return 0;
+
+
+}
+
+
+21.digit count by recursion:
+#include<stdio.h>
+int count=0;
+int fun(int n){
+if(n<10){
+    return 1;
+
+}
+count=fun(n/10);
+count++;
+
+
+}
+
+
+int main()
+{int n=121567;
+fun(n);
+printf("%d",count);
+return 0;
+}
+
+//count er value 6 dekhabe jehutu return akta sattork o 1 ta jog hoi
+
+
+
+abar ei code a
+
+#include<stdio.h>
+int count=0;
+int fun(int n){
+if(n<10){
+    return 0;
+
+}
+count=fun(n/10);
+count++;
+
+
+}
+
+
+int main()
+{int n=121567;
+fun(n);
+printf("%d",count);;
+return 0;
+}
+//count er value 5 dekhabe jehutu return 1 ta oita o abong 5 er sathe jog hoi
+or,
+
+#include<stdio.h>
+int count=0;
+int fun(int n){
+if(n==0){
+    return 1;
+
+}
+count++;
+return fun(n/10);
+
+
+}
+
+
+int main()
+{int n=121567;
+fun(n);
+printf("%d",count);;
+return 0;
+}
+
+22.fibonacce number by recursion:
+
+
+#include<stdio.h>
+int fib(int n)
+{if(n==1){
+return 1;
+}
+if(n==0){
+    return 0;
+
+}
+
+return fib(n-2)+fib(n-1);
+}
+int main(){
+
+int n=6;
+fib(n);//aikhane call dewar maddome pura function er kaj ai main function e niye asha hoise
+printf("%d",fib(n));
+return 0;
+
+}
+
+
+23.fibonacci number series by loop:
+#include<stdio.h>
+int main()
+{int a=0;
+int b=1;
+printf("%d",a);
+printf("%d",b);
+for(int i=1;i<=50;i++){
+int  temp=a+b;
+
+    printf("%d\n",a+b);//temp odewa jabe ai line e a+b er jaigai
+
+a=b;
+     b=temp;
+
+}
+return 0;
+}
+
+
+array:
+
+
+24.
+#include<stdio.h>
+int main(){
+int number=10;
+printf("%d\n",number);
+int numbers[10]={1,2,3,4,5,6,7,8,9,10};
+numbers[3]=1231;
+   printf("%d",numbers[3]);
+   return 0;
+       }
+
+
+25.#include <stdio.h>
+int main()
+{double array[5]={1.5,6.45,4.56,56.56,54};
+int size_array=sizeof(array)/sizeof(double);
+printf("%d %lf",size_array,array[3]);
+
+
+
+}
+
+
+26.print all input numbers of array:
+
+#include <stdio.h>
+int main()
+{double array[5]={1.5,6.45,4.56,56.56,54};
+int size_array=sizeof(array)/sizeof(double);
+printf("%d ",size_array);
+for(int i=0;i<size_array;i++)
+    { printf("%lf\n",array[i]);//int value hoile %d ditam.
+
+
+    }
+
+
+}
+
+
+
+
+
+27.copy one aray value to another one:
+
+
+#include<stdio.h>
+int main()
+{int array1[5]={1,2,3,4,5};
+int array2[5];
+int n1=sizeof(array1)/sizeof(int);
+int n2=sizeof(array2)/sizeof(int);
+for(int i=0;i<n1;i++)
+{
+    array2[i]=array1[i];
+}
+  for(int i=0;i<n2;i++)
+  {
+      printf("%d\n",array2[i]);
+  }
+    return 0;
+}
+
+
+copy array value without declaring value:#include<string.h>
+#include<stdlib.h>
+int main()
+{
+
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    int arr2[n];
+    for(int j=1;j<=n;j++)
+    {
+        scanf("%d",&arr[j]);
+    }
+     for(int j=1;j<=n;j++)
+    {
+        arr2[j]=arr[j];
+    }
+       for(int j=1;j<=n;j++)
+       {
+           printf("%d ",arr2[j]);
+       }
+}
+
+
+
+
+
+28.swap case:input one"s value to another one:
+
+#include<stdio.h>
+int main()
+{int a=10;
+int b=20;
+int temp; 
+temp=a;//arelta database e set kore then b teh oi value ta boshanu
+a=b;
+b=temp;
+printf("%d %d ",a,b);
+
+    return 0;
+}
+
+
+
+
+29.array reversing: 1 2 3 4 5 >>>> 5 4 3 2 1 :
+
+
+#include<stdio.h>
+int main()
+{int array[5]={1,2,3,4,5};
+int n=sizeof(array)/sizeof(int);
+for(int i=0,j=n-1;i<=n/2;i++,j--)//ai khane nested loop kaj kore nh
+    {int temp=array[i];array[i]=array[j];
+array[j]=temp;//temp ageh dile dita value same hoiye jai tai value swap kore nh tai temp e last value arekta dei
+
+    }
+for(int i=0;i<n;i++)
+{
+    printf("%d",array[i]);
+}
+
+return 0;
+
+}
+
+
+
+
+30.cg count with array with total 5 people :
+
+
+
+#include<stdio.h>
+int main(){
+  double cg1[5]={3.4,3.5,3.8,4.00,3.1};
+  double cg2[5]={3.2,3.3,3.3,3.5,3.2};
+  double cg3[5]={3.4,2.4,3.1,2.5,2.1};
+  double cg4[5]={3.3,3.4,3.1,2.9,1.9};
+  double credit1=25;
+  double credit2=18;
+  double credit3=21;
+  double credit4=35;
+  int n=sizeof(cg1)/sizeof(double);
+  for(int i=0;i<n;i++){
+  double totalcredit=credit1+credit2+credit3+credit4;
+ double summation=(cg1[i]*credit1)+(cg2[i]*credit2)+(cg3[i]*credit3)+(cg4[i]*credit4);
+  double gross_cgpa=(summation/totalcredit);
+  printf(" %d year cg is : %lf\n",i+1,gross_cgpa);//i++ dile 0,2,4 print hoi
+
+}
+return 0;
+}
+
+
+31.array searching:linear searching:it takes n time to search a number of array which is high than binary search to save time in cp binary search(ex:33) recommanded:
+
+#include<stdio.h>
+int main()
+{int fr[10]={43,34,57,546,7,8,665,45,36,67};
+int key=575;
+int i;
+int n=sizeof(fr)/sizeof(int);
+for(i=0;i<n;i++)
+{
+    if(fr[i]==key){
+        printf("%d found",key);
+    break;
+
+}}
+   if(i==n)
+        printf("%d not found",key);//akta printf line thakle shudu tkn if statement e second bracket dewa lage nh.ex:ai line
+
+
+   return 0;
+
+
+
+}
+
+
+
+32.array sorting:number sajanu:
+#include<stdio.h>
+int main()
+{int arr[5]={65,78,98,86,100};
+int n=sizeof(arr)/sizeof(int);
+int temp;
+for(int i=0;i<n;i++)
+    { for(int j=i+1;j<n;j++)
+    {
+
+
+        if(arr[i]>arr[j])
+        {temp=arr[i];
+        arr[i]=arr[j];//int likha jabe nh
+        arr[j]=temp;
+
+        }
+
+
+    }
+    }
+   for(int i=0;i<n;i++)
+   {
+       printf("%d lowest number is=%d\n",i+1,arr[i]);
+   }
+
+
+return 0;
+}
+
+or ,, 
+
+#include<stdio.h>
+int main()
+{int arr[5]={65,78,98,86,100};
+int n=sizeof(arr)/sizeof(int);
+int temp;
+
+for(int i=0,j=i+1;i<n,j<n;i++,j++)//nimnokrom theke uddokrom e sajano jai aivabe kintu uddokrom theke nimnokrome sajano jai nh tai nested loop use kora upojogi
+
+    {
+
+
+        if(arr[i]>arr[j])
+        {temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+
+        }
+
+    }
+
+   for(int i=0;i<n;i++)
+   {
+       printf("%d highest number is=%d\n",i+1,arr[i]);
+   }
+
+
+return 0;
+}
+
+
+
+33.binary search:it takes log(n) times to a number which is included in array:
+
+
+#include<stdio.h>
+int main()
+{
+    int arr[5]={76,45,67,87,98};
+    int temp;
+    int n=sizeof(arr)/sizeof(int);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++){
+            if(arr[i]>arr[j]){
+                temp=arr[i];
+                arr[i]=arr[j];
+                 arr[j]=temp;
+
+            }
+        }
+    }
+
+    for(int i=0;i<n;i++)
+    {
+       printf("%d\n",arr[i]) ;
+
+    }
+    int key=85;
+  int left=0;
+  int right=9;
+  int flag=0;
+    while(left<=right)
+    {int mid=(left+right)/2;
+    if(arr[mid]==key){
+        flag=1;
+        break;
+    }
+    else if(arr[mid]<key)
+    {
+        left=mid+1;
+    }
+    else if(arr[mid]>key)
+    {
+        right=mid-1;
+    }}
+    if(flag==1)
+    printf("%d is found\n",key);
+        if(flag==0)
+        printf("%d is not found\n",key);
+ return 0;
+}
+
+
+
+
+
+
+34.string initilizing and access:
+#include<stdio.h>
+int main()
+{ char name[6]={'t','a','w','f','i','q'};
+char name1[7]="tawfiq";
+char name2[]="tawfiq";
+printf("%s\n",name);
+ printf("%s\n",name1);
+ printf("%s\n",name2);
+for(int i=0;i<6;i++)
+{ printf("%c",name[i]);
+/*printf ai jaigai ("%c\n") dile ai loop er bethor string character wise kaj kore bidhai 
+t
+a
+w
+f
+i
+q
+eirokom print hobe*/
+
+
+}
+//new line er jonno loop er bahire \n use kora jai
+ return 0;
+
+
+}
+
+
+35.give input in string:
+include<stdio.h>
+int main()
+{ char str[50];
+scanf("%s\n",str);
+printf("%s\n",str);
+ return 0;
+
+
+}
+ or scanf cannot input any space. for this in a lot of word sentence we used gets() function only.
+
+#include<stdio.h>
+int main()
+{ char str[1000];
+gets(str);
+printf("%s\n",str);
+}
+
+
+
+
+
+36.string find length code:
+
+
+
+
+#include<stdio.h>
+
+int find_length(char string[]){
+    int i=0;
+int length=0;
+for(i=0;string[i]!='\0';i++)
+{
+    length++;
+}
+return length;
+
+}
+
+int main()
+{
+  char tot[1000];
+  gets(tot);
+find_length(tot);
+ printf("%d\n",find_length(tot));
+
+}
+
+
+or,
+
+
+#include<stdio.h>
+int find_length(char str[]){
+int length=0;
+for(int i=0;str[i]!=0;i++)
+{ length++;
+}
+return length;
+}
+int main(){
+  char country[100];
+  scanf("%s",country);
+  int length=find_length(country);
+  printf("%d",
+         length);
+  return 0;
+}
+
+
+
+
+37.upper case:to change all small character into capital character:
+
+
+#include<stdio.h>
+int main()
+{ char str[100];
+gets(str);
+for(int i=0;i<10;i++)
+{
+    str[i] +='A'-'a';// = er pashe j character thake ortath character small hoile output small e asbe r = er pashe caapital char hoile output capital e hobe.
+}
+
+printf("%s\n",str);
+
+
+
+
+38.stringes concetetion:
+
+
+#include<stdio.h>
+int main()
+{ char str1[100];
+gets(str1);
+char str2[100];
+gets(str2);
+char str3[100];
+int j=0;
+for(int i=0;i<10;i++)
+{
+    str3[j] = str1[i];
+    j++;
+}
+ for(int i=0;i<11;i++)
+{
+    str3[j] = str2[i];
+    j++;
+}
+
+
+    printf("%s",str3);
+
+}
+
+
+
+39.string character comparison one by one:
+
+
+#include<stdio.h>
+int main()
+{
+    char str[100];
+    gets(str);
+    char str2[100];
+    gets (str2);
+    int flag=0;
+    int length=6;
+    int length2=6;
+    for(int i=0;str[i]!='\0' || str2[i]!='\0';i++)
+    {
+        if(str[i]>str2[i])
+        {
+            flag=1; 
+            break;
+        }
+
+        if(str[i]<str2[i]){
+        flag=-1;
+        break;
+
+        }
+    }
+
+    if(!flag){
+        if(length>length2)
+   {
+       flag=1;
+   }
+   if(length<length2){
+    flag=-1;
+   }
+
+    }
+    printf("%d",flag);
+    return 0;
+}
+
+ //alphabet (a) ke choto (z) ke boro dhora hoi j boro tar jonno1 by character boro ba by number of character e boro.ageh by character boro nki hisev hoi then by number of character boro nki aita dekhe.
+
+
+40.string all criteria with permanent function i mean shortcut:
+
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    gets(str);
+    char str2[100];
+    gets (str2);
+printf("%d\n",strlen(str));
+    printf("%d\n",strlen(str2));
+    printf("%s",strcat(str,str2));
+    printf("%d",strcmp(str,str2));
+    return 0;
+}
+
+
+or
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{char a[6];
+gets(a);
+char temp[6];//swap er time use hoi strcpy er modde;
+strcpy(temp,a);
+strrev(a);
+printf("%s\n",temp);
+printf("%s\n",a);
+strupr(a);
+printf("%s\n",a);
+strlwr(a);
+printf("%s\n",a);
+}
+
+
+41.find nth number first and second highest number without array:
+
+#include<stdio.h>
+int main()
+{int fbig=0,sbig=0,not,num;
+
+    scanf("%d",&not);
+printf("input value is=%d\n",not);
+for(int i=1;i<=not;i++){
+    scanf("%d",&num);
+if(num>fbig)
+{sbig=fbig;
+fbig=num;
+}
+if(num>sbig && fbig>num)
+{
+    sbig=num;
+}
+
+}
+printf("First highest number is=%d\nsecond highest number is=%d\n",fbig,sbig);
+}
+
+
+42.find the 2nd highest number with array:
+#include<stdio.h>
+int main()
+{int num[100],n;
+    int fbig=0;
+    int sbig=0;//aikhane num[i dile hoi nh bcz num[i} just location dekhai r kichu dekhai nh tmn
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    { scanf("%d",&num[i]);
+
+     if(num[i]>fbig)
+          {
+            sbig=fbig;
+        fbig=num[i];
+          }
+          if(num[i]>sbig && num[i]<fbig)
+          {
+              sbig=num[i];
+          }
+    }printf("first big=%d\n second big=%d",fbig,sbig);
+       return 0;
+    }
+
+43 find the maximum and minimum number with array:
+maximum:
+
+#include<stdio.h>
+int main()
+{int num[100],n;
+    int max=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    { scanf("%d",&num[i]);
+
+     if(num[i]>max)
+          {
+            max=num[i];
+          }
+    }
+    printf("maximum=%d\n",max);
+       return 0;
+    }
+or,
+
+maximum:
+
+#include<stdio.h>
+int main()
+{int num[100],n;
+
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    { scanf("%d",&num[i]);
+    }int max=num[0];
+    for(int i=0;i<n;i++) {
+
+            if(num[i]>max)
+          {
+            max=num[i];
+          }
+    }
+    printf("maximum=%d\n",max);
+       return 0;
+}
+
+
+minimun:
+
+include<stdio.h>
+int main()
+{int num[100],n;
+    int min=num[0];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    { scanf("%d",&num[i]);
+
+     if(num[i]<min)
+          {
+            min=num[i];
+          }
+    }
+    printf("minimum=%d\n",min);
+       return 0;
+    }
+
+44.size print:
+
+
+#include<stdio.h>
+int main()
+{
+    printf("size of integer =%d\n",sizeof(int));
+    printf("size of charaacter =%d\n",sizeof(char));
+     printf("size of float =%d\n",sizeof(float));
+      printf("size of long long integer =%d\n",sizeof(long long int));
+}
+
+
+
+
+45.address of array by pointers:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    for(int i=0;i<5;i++)
+    {
+        printf("value of %dth is %d\n",i+1,arr[i]);
+        printf("address of %dth is %p\n",i+1,&arr[i]);//jdi & nh diye shudu arr[i] ditam tobe 1st array er address print hoitoh.
+    }
+return 0;
+}
+
+
+
+46.pointer means address joma kore rakha akta jaigai:
+example:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+
+{ int a=10;
+int *p=&a;/int type er pointer e int er address rakha lagbe r double type pointer e double er address rakha lagbe
+printf("the value is=%d\n",a);
+printf("the address is=%p\n",&a);
+ printf("the address is=%p\n",p);
+return 0;
+}
+
+
+
+47.dereferencing:*p=value;though it can't assign at first but it print;
+*p=value;
+p=address;
+a=value;
+&a=address;
+"%p" use in print in pointer during we need to print the address.
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+
+{ int a=10;//first assign e *p=10 eirokom lekha jaiga jaii nh.
+int *p=&a;
+printf("the value is=%d\n",a);
+printf("the address is=%p\n",&a);//p r &a dhara address indicate kore r *p r a dhara value indicate kore .
+ printf("the address is=%p\n",p);
+ printf("the value is=%d\n",*p);
+ 
+ 
+ *p=20;
+ printf("the value is=%d\n",a);
+ printf("the value is=%d\n",*p);
+  printf("the address is=%p\n",p);//value change hoile o location same thake
+  
+  
+  (*p)++;
+   printf("the value is=%d\n",a);
+ printf("the value is=%d\n",*p);
+  printf("the address is=%p\n",p);
+return 0;
+}
+
+
+
+48.quiz of deferencing
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{int x=20;
+int y=10;
+int *p=&x;
+p=&y;
+printf("the value is=%d\n",*p);
+ printf("the address is=%p\n",p);
+ *p=y;//address r value 2tai change kora jai nh aksathe p=&y othoba *p=y use korte hoi.
+ printf("the value is=%d\n",*p);
+ printf("the address is=%p\n",p);
+
+
+return 0;
+}
+
+
+49.null ponter or two pointer declaration:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+
+{int x=20;
+int nullptr;
+int *p,*q;
+p=&x;
+q=nullptr;
+printf("the value is=%d\n",*p);
+ printf("the address is=%p\n",p);
+printf("the value is=%d\n",*q);
+ printf("the address is=%p\n",q);
+
+
+return 0;
+}
+
+
+50.double pointer declaration:
+#include<stdio.h>
+int main(){
+int a=20;
+int *p=&a;
+int **q=&p;
+printf("value of a =%d\n",a);
+printf("address of a=%p\n",&a);
+printf(" value of p is = %p\n",p);//&a er man
+printf(" address of p is = %p\n",&p);//new address p er nijesso address
+printf(" content of p is = %d\n",*p);//a er man
+printf(" value of q is = %p\n",q);//&p er man ortath p er nijesso address
+printf(" address of q is = %p\n",&q);//new address of q
+printf(" content of q is = %p\n",*q);// value of p
+printf(" content of *q is = %d\n",**q);//value of a
+//*p er * dhara p er ageh j variable e j value ase tar man e chole jawa bhujai abong p teh initailize kora hoi
+return 0;
+}
+
+
+51.matrix without array:
+
+
+#include<stdio.h>
+int main()
+{
+    int n=3;
+    int a;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+        {
+            scanf("%d",&a);
+            //printf("%d ",a);
+
+        }
+        printf("\n");
+    }
+
+
+
+   return 0;
+}
+
+52.2d array:matrix:
+
+
+
+#include<stdio.h>
+int main()
+{int mat[5][5];
+for(int i=1;i<=5;i++)
+{
+    for(int j=1;j<=5;j++)
+    {
+        scanf("%d",&mat[i][j]);
+
+    }}
+    for(int i=1;i<=5;i++)
+{
+    for(int j=1;j<=5;j++)
+    {
+    printf("%d ",mat[i][j]);
+}
+printf("\n");
+}
+return 0;
+}
+
+53.array pointer recap:
+
+
+#include<stdio.h>
+int main ()
+{
+    int arr[5]={1,2,3,4,5};
+    for(int i=0;i<5;i++)
+    {
+       printf("address of %dth element %p\n",i+1,&arr[i]);
+
+    }
+    printf("address of  element %p\n",arr);
+}
+
+
+54.arrithmetic pointer of array:
+
+
+
+#include<stdio.h>
+int main()
+{
+    int a[4]={1,3,5,7};
+    int *p=&a[2];
+
+        printf("value of a[2] is %d\n",*p);//5
+         printf("value of a[2] is %d\n",*p+1);//6
+     printf("value of a[2] is %d\n",*(p+1));//7
+      printf("value of a[2] is %d\n",*(p-1));//3
+       printf("value of a[2] is %d\n",*p-1);//4
+}
+
+
+55.arrithmetic pointer of string:
+
+#include<stdio.h>
+int main()
+{
+    char a[10]="BANGLADESH";
+    char *p=&a[2];  //a[2] teh n ase array teh jmn nirdesh kore tmn ei string o 0 diye shuru hoi.
+
+        printf("value of a[2] is %c\n",*p);//N
+         printf("value of a[2] is %c\n",*p+1);//O
+     printf("value of a[2] is %c\n",*(p+1));//G
+      printf("value of a[2] is %c\n",*(p-1));//A
+       printf("value of a[2] is %c\n",*p-1);//M
+}
+
+56.input through array,pointer:
+
+#include<stdio.h>
+int main ()
+{int a[4];
+    int y[5];
+     printf("the input value of a are:");
+
+    for(int i=0;i<5;i++)
+{
+    scanf("%d",a+i);
+}
+
+
+printf("the input value of y are:");
+
+    for(int i=0;i<5;i++)
+{
+    scanf("%d",y+i);
+}
+
+printf("the output value of a are:");
+
+ for(int i=0;i<5;i++)
+ {
+     printf("%d\n",a[i]);
+ }
+
+ printf("the output value of y are:");
+
+ for(int i=0;i<5;i++)
+ {
+     printf("%d\n",y[i]);
+ }
+
+}
+
+
+
+57.pointer arithmetic increase:
+
+
+#include<stdio.h>
+int main ()
+{int a=10;
+int *p=&a;
+printf("p address is %p\n",p);
+printf("(p+1) address is %p\n",p+1);
+printf("(p+2) address is %p\n",p+2);
+}
+
+
+58.void pointer:
+
+#include<stdio.h>
+int main ()
+{float a=10.3;
+void *vp=&a;
+printf("value of vp is %p\n",vp);
+printf("value of vp is %p\n",&a);
+printf("address of vp is %p\n",&vp);
+printf("content of vp is %lf\n",*(float*)vp);
+}
+
+
+59.function pointer:
+
+#include<stdio.h>
+int add(int n1,int n2)
+{
+    return n1+n2;
+}
+int sub(int n1,int n2)
+{
+    return n1-n2;
+}
+int sum_of_triplets(int a,int b,int c)
+{
+    return a+b+c;
+}
+int main()
+{
+    int n1=10,n2=30,n3=15;
+    int (*fc)(int,int);
+    int(*fc2)(int,int,int);
+    fc=&add;
+    printf("result: %d\n",fc(n1,n2));
+    fc=&sub;
+     printf("result: %d\n",fc(n1,n2));
+     fc2=&sum_of_triplets;
+     printf("result: %d\n",fc2(n1,n2,n3));
+
+or,
+#include<stdio.h>
+int add(int a,int b)
+{
+    return a+b;
+}
+int mul(int a,int b)
+{
+    return a*b;
+}
+int div(int a,int b)
+{
+    return a/b;
+}
+
+int main()
+{
+    int n1=10,n2=5;
+    int (*tawfiq)(int,int);
+    tawfiq=&div;
+    printf("%d",tawfiq(n1,n2));
+
+}
+
+
+
+}
+
+60.passing function as parameter through pointer:
+
+
+#include<stdio.h>
+int add(int a,int b)
+{
+    return a+b;
+}
+int mul(int a,int b)
+{
+    return a*b;
+}
+int div(int a,int b)
+{
+    return a/b;
+}
+int operate(int (*tawfiq)(int,int),int n1,int n2)
+{return tawfiq(n1,n2);
+}
+int main()
+{
+    int n1=10,n2=5;
+    printf("%d",operate(&mul,n1,n2));
+
+}
+
+
+61.swap pointers:
+
+#include<stdio.h>
+int swap(int *n1,int *n2)
+{int temp;
+    temp=*n1;
+    *n1=*n2;
+    *n2=temp;
+}
+int main()
+{
+ int n1=10,n2=20;
+  swap(&n1,&n2);
+ printf("%d\n",n1);
+ printf("%d",n2);
+}
+
+
+
+Dynamic Memory allocation:
+
+63.scenario:1 :class 1 students number and marks memory allocation by pointer:
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{ int n;
+int *arr;/1D array pointer akdoroner array r array akdoroner pointer.
+printf("enter the number of students in class 1:");
+scanf("%d",&n);
+arr=(int *)malloc(sizeof(int)*n);//(int *)calloc(n,sizeof(int));
+printf("enter the marks of %d students:\n ",n);
+for(int i=0;i<n;i++)
+{
+    scanf("%d",&arr[i]);
+}for(int i=0;i<n;i++)
+{
+printf("the marks of %dth students %d\n:",i+1,arr[i]);
+}
+free(arr);
+}
+
+
+64.scenario 2:class 1 to 5 number of student and marks of students memory allocation:
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{int num[5];
+int *arr[5];
+for(int i=0;i<5;i++)
+{printf("enter the number of students in class %d",i+1);
+scanf("%d",&num[i]);
+arr[i]=(int*)malloc(sizeof(int)*num[i]);
+for(int j=0;j<num[i];j++)
+{
+printf("enter the marks of %d students:",j+1);
+scanf("%d",&arr[i][j]);
+}}
+
+for(int i=0;i<5;i++)
+{printf(" the number of students in class %d is\n",i+1,num[i]);
+
+for(int j=0;j<num[i];j++)
+{
+printf(" the marks of %d students:%d\n",j+1,arr[i][j]);
+
+}}
+for(int i=0;i<5;i++)
+{
+    free(arr[i]);
+}
+}
+
+
+65.scenario:3:class don't know students don't know ,marks dont know .dynamic memory allocation of this criteria:
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{int num[12];
+int **arr;
+int classes;
+printf("number of classes:");
+scanf("%d",&classes);
+arr=(int **)malloc(sizeof(int *)*classes);
+for(int i=0;i<classes;i++)
+    {printf("Enter the number of students in class %d\n:",i+1);
+scanf("%d",&num[i]);
+ arr[i]=(int *)malloc(sizeof(int)*num[i]);
+
+for(int j=0;j<num[i];j++)
+{printf("Enter the marks of %d students:",i+1);
+        scanf("%d",&arr[i][j]);
+}}
+
+for(int i=0;i<classes;i++)
+    {printf(" the number of students in class %d:\n",i+1);
+
+for(int j=0;j<num[i];j++)
+{printf("the marks of %d students: %d\n",j+1,arr[i][j]);
+}}
+for(int i=0;i<classes;i++)
+{
+    free(arr[i]);
+}
+free(arr);
+}
+
+
+66.loop e 2nd time dhukle age loop e jei man pai oita niye jai:
+example:
+int min=a[m-1]-a[0];
+    for(int i=n;i<=m;i++)
+    {
+      ans= abs(a[i-1]-a[i-n]);
+
+      if(ans<min)
+      {
+          min=ans;
+      }
+    }
+        printf("%d",min);
+    }
+
+67.string with multiple input:
+
+
+#include <stdio.h>
+include <stdlib.h>
+int main()
+{char name[3];
+    int t;
+    scanf("%d",&t);
+
+    for(int i=0;i<t;i++)
+    {
+scanf("%s",name);
+if((name[0]=='y'|| name[0]=='Y') &&(name[1]=='E'||name[1]=='e') && (name[2]=='s'||name[2]=='S'))
+{printf("YES\n");}
+
+   else{
+        printf("NO\n");
+   }
+   }
+    return 0;
+}
+
+
+68.iterate the maximum value of array from both rightmost or leftmost side
+
+:
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    int s=0;
+    int d=0;
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int f=0;
+    int g=n-1;
+       int z=0;
+       while(f<=g)
+       {
+           if(z%2==0)
+           {
+               if(a[f]>a[g])
+               {
+                   s+=a[f];
+                   f++;
+               }
+               else
+               {
+                   s+=a[g];
+                   g--;
+               }
+           }
+            if(z%2==1)
+           {
+               if(a[f]>a[g])
+               {
+                   d+=a[f];
+                   f++;
+               }
+               else
+               {
+                   d+=a[g];
+                   g--;
+               }
+           }
+           z++;
+       }
+       printf("%d %d",s,d);
+
+}
+
+69.distinct number identify:
+
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    int unique[n];
+    for(int j=1;j<=n;j++)
+        {
+           scanf("%d",&a[j]);
+           unique[j]=1;
+        }
+         for(int j=1;j<=n;j++)
+    {
+        if(unique[j]==0)//ai statement nh dile o chole aita nh dile shudu 
+        {
+          continue;
+        }
+        for(int k=j+1;k<=n;k++)
+        {
+              if(a[j]==a[k])
+              {
+                  unique[k]=unique[j]=0;
+              }
+        }
+        if(unique[j]==1)//indistinct number ortath j number ta repeat hoise oita bahir korte chaile unique[j]=0 dile hoi
+        {
+            printf("%d\n",a[j]);
+        }
+     }
+}
+
+70.
+#if statement e ager value store kore rakhe.kintu else if e ager value store kore rakhe nh.
+
+#include<stdio.h>
+int main()
+{int n;
+scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {int a,b,c,d,t=0;
+    scanf("%d %d %d %d",&a,&b,&c,&d);
+    if(b>a)
+    {
+        t=t+1;
+    }
+     if(c>a)
+    {
+        t=t+1;
+    }
+     if(d>a)
+    {
+        t=t+1;
+    }
+    printf("%d\n",t);
+    }
+}
+
+71.*special problem of string
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{int t;
+scanf("%d",&t);
+char a[5000];
+
+for(int i=0;i<t;i++)
+{int sum=0;
+    int n;
+    scanf("%d",&n);
+    scanf("%s",a);
+    for(int j=0;a[j]!='\0';j++)
+    {
+        if(a[j]=='-')
+        {
+            sum+=-1;
+
+        }
+       else if(a[j]=='+')
+        {
+            sum+=1;
+        }
+    }
+    sum=abs(sum);
+    printf("%d\n",sum);
+}
+}
+
+
+72.useful code:
+
+#include<stdio.h>
+int main()
+{int t;
+    scanf("%d",&t);
+    while(t--)
+    {int a=0,b=1,j=0;
+    int k;
+    scanf("%d",&k);
+    while(j<k)
+    {
+        if(b%3!=0 && b%10!=3)
+        {
+            a=b;
+            j++;
+        }
+        b++;
+    }
+    printf("%d\n",a);
+
+    }
+
+}
+
+if(v=='c'||v=='o'||v=='d'||v=='e'||v=='f'||v=='r'||v=='e'||v=='s')
+           {
+               printf("YES");
+           }
+           else
+           {
+               printf("NO");
+           }
+
+
+
+73.
+structure problem:
+
+#include<stdio.h>
+#include<string.h>
+struct x{
+int id;
+char name[25];
+};
+int main()
+{
+    struct x s1;
+    struct x s2;
+    s1.id=234;
+    strcpy(s1.name,"tawfiq wahed");
+    s2.id=235;
+   strcpy( s2.name,"jamil shahriar");
+   printf("%d\n",s1.id);
+   printf("%d\n",s2.id);
+   printf("%s\n",s1.name);
+printf("%s",s2.name);
+}
+
+
+input string line with space:char s[100];
+fgets(s,100,stdin);
+gets(s);
+scanf("%[^\n]",s);
+
+
+
+74.counting time of code:
+
+#include<stdio.h>
+#include<time.h>
+int main()
+{
+    clock_t start,end;
+    start=clock();
+    int n=5;
+for(int i=0;i<10000000;i++)
+{
+    n++;
+}
+end=clock();
+double elapsed_time=(double)(end-start)/CLOCKS_PER_SEC;
+printf("The time spent=%lf\n",elapsed_time);
+}
+
+
+75.random number print:
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+int main()
+{ time_t t;
+     srand((unsigned)time(&t));
+    for(int i=0;i<5;i++)
+    {
+        printf("Random Number=%d\n",rand());
+    }
+}
+
+76.making ludo games code:
+
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+int main()
+{ time_t t;
+     srand((unsigned)time(&t));
+    for(int i=0;i<10;i++)
+    {
+        printf("Random Number=%d\n",rand()%6+1);
+    }
+}
+
+77.random word print code:
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+int main()
+{ time_t t;
+char s[8];
+     srand((unsigned)time(&t));
+    for(int i=0;i<8;i++)
+    {
+       s[i]='a'+(rand()%26);
+    }
+    s[8]='\0';
+    printf("Random word is:%s\n",s);
+}
+ 
+
+78.
+#include<stdio.h>
+#include<math.h>
+#define pi 2*acos(0)
+#define first 't'
+#define max(a,b) a>b ? a:b
+#define increment(a) ++a
+#define swap(a,b){\
+    a=a+b;\
+    b=a-b;\
+    a=a-b;\
+}
+int main()
+{ printf("PI=%lf\n",pi);
+printf("%c\n",first);
+int a,b;
+scanf("%d %d",&a,&b);
+printf("MAXIMUM NUMBER IS=%d\n",max(a,b));
+printf("VALUE OF A IS=%d\n",increment(a));
+swap(a,b);
+printf("AFTER SWAP= %d %d",a,b);
+}
+
+
+79.
+
+#include<stdio.h>
+#include<math.h>
+enum color {red=32,green=100,blue=200};//enum function is used to define as constant a lot of value together;
+int main()
+{
+    printf("Red=%d\n",red);
+    printf("GREEN=%d\n",green);
+    printf("BLUE=%d",blue);
+}
+
+
+80.open a file:
+#include<stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[]="tawfiq_highscore.txt";
+    fp=fopen(filename,"w");
+    int score=198;
+    fprintf(fp,"score biggest is %d\n",score);
+    fclose(fp);
+}
+
+81,file operand mode:
+#include<stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[]="tawfiq_highscore.txt";
+    fp=fopen(filename,"a");
+    int score=198;
+    fprintf(fp,"score biggest is made by player 1\n");
+    fclose(fp);
+}
+
+82.file read mode:
+#include<stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[]="tawfiq_highscore.txt";
+    fp=fopen(filename,"r");
+    char s[1000];
+    fgets(s,1000,fp);
+    printf("%s",s);
+    fclose(fp);
+}
+
+83.
+#include<stdio.h>
+int main()
+{
+    FILE *fp;
+    char filename[]="tawfiq_highscore.txt";
+    fp=fopen(filename,"r");
+    int t;
+    fscanf(fp,"%d",&t);
+    while(t--)
+    {
+        int a,b;
+        fscanf(fp,"%d %d",&a,&b);
+    printf("%d %d\n",a,b);
+    }
+    fclose(fp);
+}
+
+84.sum of value in anther file those value in one file and sum in others:
+
+#include<stdio.h>
+int main()
+{
+    FILE *fp,*fp2;
+    char filename[]="tawfiq_highscore.txt";
+    char filename2[]="output.txt";
+    fp=fopen(filename,"r");
+    fp2=fopen(filename2,"w");
+    int t,sum=0;
+   while( fscanf(fp,"%d",&t)!=EOF)
+    {sum+=t;
+    }
+    fprintf(fp2,"sum is %d\n",sum);
+    fclose(fp);
+    fclose(fp2);
+}
+
+85.LOWER CASE UPPER CASE BIT OPERATOR:
+#include<stdio.h>
+#include<string.h>
+int main()
+{int t,m,n;;
+scanf("%d %d",&t,&m);
+int a=~t;
+printf("%d\n",a);
+       int b=a<<2;
+       int c=b>>2;
+       printf("%d %d\n",b,c);
+       int d=t&m;
+       printf("%d\n",d);
+       if(t&1)
+       {
+           printf("odd\n");
+       }
+       else
+        printf("even\n");
+}
+
+86.bitwise operator implementation:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{int t,m,n;;
+scanf("%d %d",&t,&m);
+int a=~t;
+printf("%d\n",a);
+       int b=a<<2;
+       int c=b>>2;
+       printf("%d %d\n",b,c);
+       int d=t&m;
+       printf("%d",d);
+       if(t&1)
+       {
+           printf("odd");
+       }
+       else
+        printf("even")
+}
+
+87. upper and lower case through bitwise operator:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{char t,m;
+scanf("%c %c",&t,&m);
+int c=t|32;
+printf("%c",c);
+int d=m&95;
+printf("%c",d);
+}
+
+88.#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{ char c[1000];
+gets(c);
+printf("%s\n",c);//printf("%[^\n]",c);//getline(c,stdin)
+for(int i=0;i<strlen(c);i++)
+{
+    if(c[i]>='a' && c[i]<='z')
+    {
+        c[i]=c[i]&95;
+    }
+    else{c[i]=c[i];}}
+    printf("%s",c);
+
+}
+
+//n&(n-1) true hoile 2 er power nh  r  n&n-1 false hoile 2 er power
+
+89.count the bits:
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{ int n;
+scanf("%d",&n);
+int count =0;
+while(n)
+{
+    if(n&1) count++;
+n=n>>1;
+}
+printf("%d",count);
+}
+
+90.which number power of 2:
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{ int n;
+scanf("%d",&n);
+int count =0;
+while(n)
+{
+    if(!(n&1)) count++;
+n=n>>1;
+break
+}
+printf("%d",count);
+}
+//1 digit koita ase count korbo karon 0 digit 32 bit er hoi.
+
+
+91.equality of number by xor gate:
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{ int n,m;
+scanf("%d %d",&n,&m);
+if(n^m)//1 xor 1==0
+{
+    printf("numbers are not equal");
+}
+else printf("NUMBERS ARE EQUAL");
+
+}
+
+92.unique number identify by xor gate:
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{ int a[7]={1,2,3,4,3,2,1};
+int ans=0;
+for(int i=0;i<7;i++)
+{
+   ans^=a[i];
+}
+printf("%d",ans);
+}
+
+
+
+c++ beginning:
+
+93.#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cin>>a;
+    cout<<a<<endl;
+    return 0;
+}
+
+
+94.#include <iostream>
+using namespace std;
+int main()
+{
+    char a;
+    cin>>a;
+    cout<<"A IS :"<<a<<endl;
+    return 0;
+}
+
+
+
+95.#include <iostream>
+using namespace std;
+int main()
+     { int a[5];
+     for(int i=0;i<5;i++)
+     {
+         cout<<"input the "<<i+1<<"th numbers: ";
+         cin>>a[i];
+     }
+     for(int i=0;i<5;i++)
+     { cout<< "The "<<i+1<<"th number is:"<<a[i]<<endl;
+     }
+    return 0;
+}
+
+
+96.#include <iostream>
+using namespace std;
+int main()
+     { bool a=true;
+     if(a)cout<<"value of a is:"<<a<<endl<<"it is true"<<endl;
+          else cout<<"value of a is:"<<a<<endl<<"it is false"<<endl;
+    return 0;
+}
+
+97.
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+    bool prime(int x,int y)
+    {bool flag;
+       for(int i=3;i<=x;i++)
+     {
+         if(y%i==0)
+         {
+          flag=true;
+         }
+         else
+            { flag=false;
+         break;
+         }}
+         return flag;
+
+    }
+ int main(){
+     int n;
+ cin>>n;
+     int a=ceil(sqrt(n));
+     printf("%d\n",a);
+          if( prime(a,n))
+     {
+         cout<<n <<"number is not a prime number"<<endl;
+     }
+  else cout<<n<<"is a prime number"<<endl;
+     }
+
+
+98.#include<iostream>
+#include<cmath>
+using namespace std;
+
+ int main(){
+ string s;
+ getline(cin,s);
+ cout<<"THE GIVEN STRING IS:"<<s<<endl;
+     }
+
+
+99.Concetetation string:
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+ int main(){
+ string s;
+ getline(cin,s);
+ string s1;
+ getline(cin,s1);
+ s=s+s1;
+ cout<<"THE GIVEN STRING IS:"<<s<<endl;
+     }
+100.size of string:
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+ int main(){
+ string s;
+ getline(cin,s);
+ string s1;
+ getline(cin,s1);
+ s=s+s1;
+ cout<<"THE GIVEN STRING IS:"<<s<<endl;
+ cout<<"LENGTH OF STRING:"<<s1.size()<<endl;
+     }
+
+101.#include<iostream>
+using namespace std;
+int main()
+{ string a;
+    cin>>a;//tawfiq
+    a.insert(3,"bol");
+    a.push_back('a');
+    cout<<a<<endl;//tawbolfiqa
+    return 0;
+}
+
+
+102.copy value to another array with small length:
+#include<stdio.h>
+int main()
+{int c=0;
+    int n,j=0;
+    scanf("%d",&n);
+    int a[n],b[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+        if(a[i]%2==0)
+        {
+            c++;
+            b[j]=c;
+            j++;
+
+        }
+    }
+    for(int e=0;e<j;e++)
+    {
+        printf("%d ",b[e]);
+    }
+}
+
+
+
+/*#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+vector<int>v={2,3,4,5};
+vector<int>::iterator balu;
+for(balu=v.begin();balu!=v.end();balu++)
+{
+    cout<<*balu<<" ";
+}
+cout<<endl;
+}*/
+
+
+
+/*#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v={2,3,4,5};
+    for(int u:v)cout<<u<<" ";
+    cout<<endl;
+}*/
+
+
+
+/*#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    vector<int>v;
+    while(cin>>n)//while(1){cin<<n;bakigula ager moto
+    {
+        if(n==0)break;
+        v.push_back(n);
+    }
+    cout<<v.size()<<endl;
+    for(auto u:v)cout<<u<<endl;
+}*/
+
+
+
+sorting by vector:
+
+
+
+/*#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int> v={5,1,7,23,21,2,12};
+    sort(v.begin(),v.end());//time complexity(sort:O(nlog2(n)))
+    for(auto u:v)cout<<u<<" ";
+    cout<<endl;
+}*/
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v={2,3,12,32,14,54,34,23};
+    sort(v.rbegin(),v.rend());//sort(v.begin(),v.end(),greater<int>());
+    for(auto u:v)cout<<u<<" ";
+    cout<<endl;
+}
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{vector<int>v={6,7,8,54,89,76,87,9,0,9,12};
+reverse(v.begin(),v.end());
+for(auto u:v)cout<<u<<" ";
+cout<<endl;
+}
+
+last value print or delete:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v={2,3,4,5,6,7,8,9};
+    cout<<v.back()<<endl;//time complexity O(1);
+     cout<<v.back()<<endl;
+    cout<<v.size()<<endl;
+    v.pop_back();//time complexity O(1);
+     cout<<v.back()<<endl;
+    cout<<v.size()<<endl;
+
+}
+
+printf the first value or delete the first value:
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v={2,3,4,5,6,7,8,9};
+    cout<<*v.begin()<<endl;
+   v.erase(v.begin())<<endl;//O(n)index change due to all value change;
+    /*for decresing time complexity to delete the first number
+    reverse(v.begin(),v.end());
+    v.pop_back;
+    cout<<v.size>endl;*/
+    
+}
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v;
+    for(int i=0;i<10;i++)
+    {
+        int a;
+        cin>>a;
+        v.push_back(a);
+    }
+    sort(v.begin(),v.end());//O(nlog2n) time complexity
+    int sz=unique(v.begin(),v.end())-v.begin();//O(n).(shudu ai line like unique number r size duitai bahir hbe extra line likhle bhul hoi ans)
+        cout<<sz<<endl;
+    for(int i=0;i<sz;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+}//total time complexity nlogn;
+
+
+
+max element and max element position counting 
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v;
+    for(int i=0;i<10;i++)
+    {
+        int a;
+        cin>>a;
+        v.push_back(a);
+    }
+    int n=max_element(v.begin(),v.end())-v.begin();//(position)
+    cout<<n<<endl;
+    vector<int>::iterator it=max_element(v.begin(),v.end());//value
+    cout<<*it<<endl;
+}
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n'
+int main()
+{ optimize();
+ string s;
+ getline(cin,s);//for printf a whole line
+ cout<<s<<endl;
+}
+
+
+MULTIPLE STRING WITH SPACE INPUT AND OUTPUT:
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n'
+int main()
+{ optimize();
+int t,i;
+cin>>t;
+for(i=1;i<=t;i++)
+ {string s;
+ char c;
+ cin>>c;
+ getline(cin,s);
+ cout<<"case"<<" "<<i<<c+s<<endl;
+}
+}
+
+lexicographically comparison:
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+using namespace std;
+int main()
+{
+    string c="TAWBIZ";
+string  d="TAWZIA";
+if(c<d)cout<<"d is greater";
+else if(d<c)cout<<"c is greater";
+else cout<<"both are equal";
+}
+
+
+remove a alphabet from the string:
+
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio;cin.tie(0);cout.tie(0);
+#define endl '\n';
+using namespace std;
+int main()
+{
+  string s="ASADAF";
+  s.erase(remove(s.begin(),s.end(),'A'),s.end());
+  cout<<s<<endl;
+}
+
+
+string last value print:
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio;cin.tie(0);cout.tie(0);
+#define endl '\n';
+using namespace std;
+int main()
+{  optimize();
+  string s="abcd";
+  cout<<s.back()<<endl;
+  s.pop_back();
+  cout<<s.back();
+  }
+
+string unique:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<string>v;
+    v.push_back("tawfiq");
+    v.push_back("tammi");
+    v.push_back("afra");
+    v.push_back("tawfiq");
+    v.push_back("araf");
+    v.push_back("adiba");
+    sort(v.begin(),v.end());
+    int sz=unique(v.begin(),v.end())-v.begin();
+    cout<<sz<<endl;
+    for(int i=0;i<sz;i++)cout<<v[i]<<endl;
+}
+
+
+convert a integer to string:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+   int a=123;
+   string s=to_string(a);
+   cout<<s<<endl;
+   s[0]='2';
+   cout<<s<<endl;
+}
+
+covert a string to integer:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+   string s="345";
+   int a=stoi(s);cout<<a<<endl;
+   a++;
+   cout<<a<<endl;
+}
+
+
+
+checking upper and lower case and space also:
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  char c='A';
+  bool f1=isupper(c);//islower(c)//isspace(c)
+  cout<<f1<<endl;
+}
+
+convert character to  upper:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  char c='a';
+  c=toupper(c);//tolower(c)
+  cout<<c<<endl;
+}
+
+
+back inserter:
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+using namespace std;
+int main()
+{
+        optimize();
+        string s="tawfiq";
+        string t="tawsif wahed bin";
+        copy(t.begin()+6,t.begin()+13,back_inserter(s));
+    cout<<s<<endl;
+}
+
+substring in a string is continuous ex:"asadaf" ada is a substring or sda is a subsequence.
+find a substring in a string::
+
+
+
+important code:
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+using namespace std;
+int main()
+{
+        optimize();
+        int t,ans=0;
+        cin>>t;
+        while(t--)
+      {string s;
+        cin>>s;
+
+       int l=s.size();
+        for(int i=0;i<l;i++)
+        {
+            ans+=s[i]-'0';
+        }
+      string c=to_string(ans);
+      string tmp=c;
+      reverse(c.begin(),c.end());
+      if(c==tmp){cout<<"YES"<<endl;}
+      else cout<<"NO"<<endl;
+      }
+}
+
+
+to smaller ,to bigger:
+
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+using namespace std;
+int main()
+{
+        optimize();
+        int t,ans=0;
+        string s1;
+        cin>>s1;
+        string s2;
+        cin>>s2;
+        for(int i=0;i<s1.size();i++)s1[i]=tolower(s1[i]);
+        for(int i=0;i<s2.size();i++)s2[i]=tolower(s2[i]);
+        cout<<s1<<endl;
+        cout<<s2<<endl;
+        
+}
+
+
+important code:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[3]={5,7,5};
+      vector<string>v;
+      int l[3];
+ for(int i=0;i<3;i++)
+ {
+     char c;
+     cin>>c;
+string s;
+     getline(cin,s);
+     s=c+s;
+      l[i]=s.size();
+     v.push_back(s);
+ }
+ int f;
+ for(int i=0;i<3;i++)
+ { f=0;
+ for(int j=0;j<l[i];j++)
+ {
+     if(v[i][j]=='a'||v[i][j]=='e'||v[i][j]=='i'||v[i][j]=='o'||v[i][j]=='u')f++;
+ }
+ if(a[i]!=f){cout<<"NO";
+ return 0;
+ }
+ }
+ cout<<"YES";
+    }
+
+pair related basics:
+
+#include<bits/stdc++.h>
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n'
+using namespace std;
+int main(){
+  /*pair<string,int>p;
+  p.first="tawfiq";
+  p.second=12;
+  cout<<p.first<<endl;
+  cout<<p.second<<endl;*/
+ pair<string,vector<int>>p;
+ p.first="TAWFIQ";
+ p.second={1,3,5,7,9};
+ cout<<p.first<<endl;
+ for(auto u:p.second)cout<<u<<" ";
+ cout<<endl;
+}
+
+
+useful code:
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize()ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+int main()
+{optimize();
+int t;
+cin>>t;
+while(t--)
+{
+    int n,k;
+    cin>>n;
+int a[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+    cin>>k;
+     vector<pair<int,int>>v;
+    for(int i=0;i<n;i++)
+{
+    for(int j=0;j<n;j++)
+    {
+        if(i!=j &&a[i]-a[j]==k)
+        {
+            v.push_back({a[i],a[j]});
+        }
+    }
+}
+    sort(v.begin(),v.end());
+    int Sz = unique(v.begin(),v.end())-v.begin();
+cout<<Sz<<endl
+}
+}
+
+useful code as iupc ranking list with solving and penalty:
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize()ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+bool cmp (const pair<int,int>&p1,const pair<int,int>&p2)
+{
+    if(p1.first>p2.first)return 1;
+    else if(p1.first==p2.first) return(p1.second<p2.second);
+    return 0;
+}
+int main()
+{optimize();
+
+     vector<pair<int,int>>v;
+    v={{4,143},{3,120},{4,500},{1,20}};
+    sort(v.begin(),v.end(),cmp);
+   for(auto u:v)cout<<u.first<<" "<<u.second<<endl;
+}
+
+cmp er bodle use kora jabe:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize()ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+/*bool cmp (const pair<int,int>&p1,const pair<int,int>&p2)
+{
+    if(p1.first>p2.first)return 1;
+    else if(p1.first==p2.first) return(p1.second<p2.second);
+    return 0;
+}*/
+int main()
+{optimize();
+int n,k,ans=0;
+cin>>n>>k;
+     vector<pair<int,int>>v(n);
+    for(int i=0;i<n;i++)
+        {cin>>v[i].first>>v[i].second;
+        v[i].first*=-1;
+        }
+    sort(v.begin(),v.end());//,cmp);
+   for(auto u:v)
+   {if(u==v[k-1])ans++;
+}
+cout<<ans<<endl;
+}
+
+justify the distinct value with map:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   map<int,bool>vis;
+   vector<int>v={2,3,4,5,5,4,3,2};
+   for(auto u:v)vis[u]=1;
+   for(auto u:vis)cout<<u.first<<" "<<u.second<<endl;
+}
+
+
+string count through map:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   map<string,int>vis;
+  int n;
+  cin>>n;
+  for(int i=0;i<n;i++)
+  {
+      string s;
+      cin>>s;
+     vis[s]++;
+  }
+for(auto u:vis)cout<<u.first<< " "<<u.second<<endl;
+}
+
+vector map combination:
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   vector<map<string,int>>vis;
+  map<string,int>c;
+  c["asd"]=1;
+  vis.push_back(c);
+
+cout<<vis[0]["asd"]<<endl;
+}
+
+
+
+useful code:
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{ int t;
+cin>>t;
+while(t--)
+   {
+       map<string,int>cnt;
+     int n;
+     cin>>n;
+     for(int i=0;i<n;i++)
+     {
+         string s;
+         cin>>s;
+         cnt[s]++;
+     }
+     for(auto u:cnt)
+     {
+         if(u.second==2)cout<<u.first<<endl;
+     }
+   }
+}
+
+
+distinct size count with map:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{ int t;
+cin>>t;
+ map<int,int>cnt;
+while(t--)
+   {
+
+     int n;
+     cin>>n;
+     cnt[n]++;
+
+   }
+    cout<<cnt.size()<<endl;
+}
+
+
+hardest and important code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{ int t;
+cin>>t;
+while(t--)
+{
+    char c;
+    cin>>c;
+    string s;
+    getline(cin,s);
+    s=c+s;
+    string tmp;
+    vector<string>v;
+    for(auto u:s)
+    {
+        if(isspace(u))
+        {
+            v.push_back(tmp);
+            tmp.clear();
+        }
+        else tmp+=u;
+    }
+    v.push_back(tmp);
+    map<string,int>cnt;
+    int mx=0;
+    for(auto u:v)
+    {
+        cnt[u]++;
+        mx=max(mx,cnt[u]);
+    }
+    string ans;
+    for(auto u:v)
+    {
+        if(cnt[u]==mx)
+        {
+            ans=u;
+            break;
+        }
+    }
+    cout<<ans<<" "<<mx<<endl;
+}
+}
+
+important code:
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{ map<int,int>cnt;
+ int t;
+cin>>t;
+for(int i=0;i<t;i++)
+{
+    int a;
+    cin>>a;
+    cnt[a]++;
+}
+int ans=0;
+for(auto u:cnt)
+{
+    if(u.second>=u.first)ans+=u.second-u.first;
+    else ans+=u.second;
+}
+cout<<ans<<endl;
+}
+
+
+useful code:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+int main()
+{ optimize();
+    map<string,string>cnt;
+    int a,b;
+    cin>>a>>b;
+    for(int i=0;i<a;i++)
+    {
+        string s,t;
+        cin>>s>>t;
+        cnt[t]=s;
+    }
+    for(int i=0;i<b;i++)
+    {
+        string c,d;
+        cin>>c>>d;
+        d.pop_back();
+        cout<<c<< " "<<d<<"; #"<<cnt[d]<<endl;
+    }
+}
+
+
+
+set beginning:
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define ll long long
+#define endl '\n'
+int main()
+{
+    optimize();
+    set<int>s={1,1,3,3,2,2};
+    cout<<s.size()<<endl;
+    for(auto u:s)cout<<u<<" ";
+    cout<<endl;
+}
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define ll long long;
+#define optimize() ios_bas::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+#define pb push_back;
+int main()
+{
+   set<int>s={1,2,3,2,3,4,5};
+   set<int>::iterator it;
+   for(it=s.begin();it!=s.end();it++)cout<<*it<<" ";
+   cout<<endl;
+}
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+//#define ll long long;
+#define optimize() ios_bas::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+#define pb push_back;
+int main()
+{
+  set<int>s={1,2,3,4,4,3,2,2,2,3,2};
+  s.clear();
+  cout<<s.empty()<<endl;
+}
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+//#define ll long long;
+#define optimize() ios_bas::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+#define pb push_back;
+int main()
+{
+  set<int>s={1,2,3,4,4,3,2,2,2,3,2};
+  s.clear();
+  s.insert(2);
+  s.insert(3);
+  s.insert(3);
+  s.insert(4);
+  s.insert(4);
+  cout<<s.size()<<endl;
+  for(auto u:s)cout<<u<<" ";
+  cout<<endl;
+}
+
+kono element ase nki oita bahir kore:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+//#define ll long long;
+#define optimize() ios_bas::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define endl '\n';
+#define pb push_back;
+int main()
+{
+  set<int>s;
+  s.insert(2);
+  s.insert(3);
+  s.insert(3);
+  s.insert(4);
+  s.insert(4);
+  cout<<s.size()<<endl;
+  cout<<s.count(3)<<endl;time complexity log2(n)
+  cout<<s.count(5)<<endl;
+}
+
+begining element of set print:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<int>s={1,2,2,3,4,3,2};
+    cout<<*(s.begin())<<endl;
+}
+
+
+last element of set print:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<int>s={1,2,2,3,4,3,2};
+    cout<<*(--s.end())<<endl;
+cout<<*(s.begin())<<endl;
+}
+
+
+specific element delete or begining or end element delete:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<int>s={1,2,2,3,4,3,2};
+    s.erase(2);
+    cout<<s.size()<<endl;
+    for(auto u:s)cout<<u<<" ";
+    cout<<endl;
+    s.erase(*s.rbegin());
+    for(auto u:s)cout<<u<<" ";
+    cout<<endl;
+
+}
+
+
+string of set:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<string>s;
+    s.insert("shain");
+    s.insert("tawfiq");
+    s.insert("araf");
+    s.insert("arisha");
+    s.insert("aroa");
+    s.insert("tawfiq");
+    s.insert("aroa");
+      s.insert("aroa");
+        s.insert("aroa");
+        s.insert("zerin");
+        cout<<s.size()<<endl;
+        for(auto u:s)cout<<u<<endl;
+
+}
+
+
+pair set combo with string example:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<pair<string,string>>s;
+    s.insert({"shain","tawfiq"});
+    s.insert({"tawfiq","tawfiq"});
+    s.insert({"araf","jaima"});
+    s.insert({"arisha","jaima"});
+    s.insert({"aroa","arisha"});
+    s.insert({"tawfiq","arisha"});
+    s.insert({"jaima","arisha"});
+      s.insert({"aroa","arisha"});
+        s.insert({"aroa","arisha"});
+        s.insert({"zerin","arisha"});
+        cout<<s.size()<<endl;
+        for(auto u:s)cout<<u.first<<" "<<u.second<<endl;
+
+}
+
+
+boro theke choto pair sorting with set:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    set<pair<string,string>,greater<pair<string,string>>>s;
+    s.insert({"shain","tawfiq"});
+    s.insert({"tawfiq","tawfiq"});
+    s.insert({"araf","jaima"});
+    s.insert({"arisha","jaima"});
+    s.insert({"aroa","arisha"});
+    s.insert({"tawfiq","arisha"});
+    s.insert({"jaima","arisha"});
+      s.insert({"aroa","arisha"});
+        s.insert({"aroa","arisha"});
+        s.insert({"zerin","arisha"});
+        cout<<s.size()<<endl;
+        for(auto u:s)cout<<u.first<<" "<<u.second<<endl;
+
+}
+
+
+unorder set:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    unordered_set<int>s={1,2,3,3,2,3,4,6,3,4,5,4,3,4,2,3,3};
+        cout<<s.size()<<endl;
+        for(auto u:s)cout<<u<<endl;
+
+}
+
+
+practice problem code:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    unordered_set<int>s={1,2,3,3,2,3,4,6,3,4,5,4,3,4,2,3,3};
+        cout<<s.size()<<endl;
+        for(auto u:s)cout<<u<<endl;
+
+}
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    int a,b,n1,n2,rem;
+  cin>>a>>b;
+n1=a;
+n2=b;
+while(n1%n2!=0)
+{
+    rem=n1%n2;
+    n1=n2;
+    n2=rem;
+}
+cout<<n2<<endl;
+cout<<(a*b)/n2<<endl;
+}
+
+
+
+
+print any element of set:
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    int t;
+    cin>>t;
+    set<ll>v;
+    for(ll i=0;i<t;i++)
+    {
+        int a;
+        cin>>a;
+        v.insert(a);
+    }
+    int p,c=0;
+    if(v.size()<2)cout<<"NO"<<endl;
+    else{
+        //cout<<*(++v.begin())<<endl;for print 2nd element of set
+        //for print 3rd element of set:
+        for(auto u:v)
+        {
+            if(c==3)break;
+            p=u;
+            c++;
+        }
+        cout<<p<<endl;    }
+}
+
+
+
+multiset:
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#define ll long long
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+using namespace std;
+int main()
+{
+    optimize();
+    multiset<int>s;//do not unique the set but it is sorted
+    s.insert(1);
+    s.insert(2);
+    s.insert(2);
+    s.insert(2);
+    s.insert(3);
+    s.insert(4);
+    s.insert(5);
+    s.insert(2);
+    //delete only a singe digit it can one occurance or many
+    auto it=s.find(2);
+    s.erase(it);*/
+    //delete many digit of a single number that has many occurance
+    s.erase(2);
+    //occurance of a number
+    cout<<s.count(2)<<endl;
+    cout<<s.size()<<endl;
+    for(auto u:s)cout<<u<<" ";
+    cout<<endl;
+}
+
+
+binary search solution.
+problem name interesting drink:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+void solve(vector<int>v,long long int b)
+{
+    int a=upper_bound( v.begin(),v.end(),b)-v.begin();
+    cout<<a<<endl;
+  }
+
+int main()
+   { optimize();
+
+
+    int n;
+    cin>>n;
+  vector<int>v(n);
+  for(int i=0;i<n;i++)
+  {
+      cin>>v[i];
+  }
+  sort(v.begin(),v.end());
+  int q;
+  cin>>q;
+  for(int i=0;i<q;i++)
+  {  //a=0;
+      long long int b;
+      cin>>b;
+      /*for(int j=0;j<n;j++)
+      {
+          if(b>=v[j])a++;
+      }
+      cout<<a<<endl;*/
+solve(v,b);
+ // int a=upper_bound( v.begin(),v.end,b)-v.begin();
+  //cout<<a<<endl;
+  }
+  return 0;
+}
+
+Stack:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+
+int main()
+   {
+       optimize();
+ stack<int>st;
+ st.push(1);
+ st.push(2);
+ st.push(3);
+ st.push(4);
+ /*
+print the stack size:
+cout<<st.size()<<endl;
+ print the first top element:
+ cout<<st.top()<<endl;
+  print the second top element:
+ st.pop();
+cout<<st.top()<<endl;*/
+while(!st.empty())
+{
+    cout<<st.top()<<endl;
+    st.pop();
+}
+}
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+
+int main()
+   {
+       optimize();
+       int n;
+       cin>>n;
+       while(n--)
+       {string s;
+       cin>>s;
+       cout<<s.find("YE")<<endl;//position
+       cout<<s.substr(3,3)<<endl;//find with str
+       //hete s.substr(begining of the position,length of string i want )
+   }
+   }
+
+
+
+Yes-Yes? problem sol: with continue function use:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+void solve()
+{
+    int l;
+       string s;
+       cin>>s;
+       l=s.size();
+       if(l==1)
+       {
+           if(s=="Y"||s=="e"||s=="s"){cout<<"YES"<<endl;
+           return;
+           }
+           else {cout<<"NO"<<endl;
+           return;
+           }
+       }
+       for(int i=0;i<l-1;i++)
+       {
+           if(s[i]=='e' && s[i+1]=='s')
+           {
+               continue;//continue statement main iterator er increment kore
+           }
+           else if(s[i]=='s' && s[i+1]=='Y')
+           {
+               continue;
+           }
+           else if(s[i]=='Y' && s[i+1]=='e')
+           {
+               continue;
+           }
+           else
+           {
+             cout<<"NO"<<endl;
+             return;
+           }
+       }
+       cout<<"YES"<<endl;
+}
+
+int main()
+   {
+       optimize();
+       int n;
+       cin>>n;
+       while(n--)
+       {solve();
+       }
+
+   }
+
+
+balanced bracket stack problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+
+bool solve(char c1,char c2)
+{
+    return((c1=='('&& c2==')')||(c1=='{'&&c2=='}')||(c1=='['&&c2==']'));
+}
+//({({})}[])
+
+
+int main()
+   { optimize();
+   int t;
+   cin>>t;
+   while(t--)
+         {
+         string s;
+    cin>>s;
+    bool a=1;
+    stack<char>st;
+    for(auto u:s)
+    {
+        if(u=='('||u=='{'||u=='[')st.push(u);
+        else{
+                if(st.empty())
+                {
+                    a=0;
+                    break;
+                }
+                else {if(solve(st.top(),u))
+                { st.pop();
+                }
+                else{
+                    a=0;
+                    break;
+                }
+                }
+                }
+    }
+    if(!st.empty())a=0;
+if(a==1)cout<<"YES"<<endl;
+else cout<<"NO"<<endl;
+         }
+
+   }
+
+
+if shob statement ei jai kintu else if use korle direct else e chole jai else if jekono akta statement print kore kintu if jotota dibo totota true hoile totota statement print korbe
+
+hardest problem of stack:
+
+
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+void solve()
+{
+    stack<int>st;
+    vector<string>s={"5","2","C","D","+"};
+
+    for(auto u:s)
+    {
+        if(u.size()>1)
+        {
+            st.push(stoi(u));
+        }
+        else if(isdigit(u[0]))
+        {
+            st.push(u[0]-'0');
+        }
+        else
+        {
+            if(u=="+")
+            {
+                int a1=-1,a2=-1;
+               if(!st.empty())
+               {
+                   a1=st.top();
+                   st.pop();
+               }
+               if(!st.empty())
+               {
+                   a2=st.top();
+                   st.pop();
+               }
+               if(a2!=-1)
+               {
+                   st.push(a2);
+                   st.push(a1);
+                   st.push(a2+a1);
+               }
+               else if(a2!=1)
+               {
+                   st.push(a1);
+               }
+            }
+            else if(u=="D")
+            {
+                st.push(2*(st.top()));
+            }
+            else{
+
+                if(!st.empty())
+                {
+                    st.pop();
+                }
+            }
+        }
+    }
+    ll ans=0;
+    while(!st.empty())
+          {
+     ans+=st.top();
+        st.pop();
+          }
+    cout<<ans<<endl;
+}
+
+
+int main()
+   { optimize();
+   solve();
+
+   }
+
+
+ 
+
+
+
+linked list:
+#include<stdio.h>
+#include <stdlib.h>
+
+    struct bol
+{
+    int data;
+    struct bol *next;
+};
+int main()
+{
+    struct bol *a=NULL;
+    struct bol *b=NULL;
+    struct bol *c=NULL;
+    a=(struct bol*)malloc(sizeof(struct bol));
+    b=(struct bol*)malloc(sizeof(struct bol));
+    c=(struct bol*)malloc(sizeof(struct bol));
+    a->data=10;
+    b->data=23;
+    c->data=25;
+    a->next=b;
+    b->next=c;
+    c->next=NULL;
+    //traverse the linked list;
+    while(a!=NULL)
+    {
+        printf("%d ->",a->data);
+        a=a->next;
+    }
+    return 0;
+}
+
+
+quick sort:
+
+#include<stdio.h>
+#include<stdlib.h>
+void swap(int *a,int *b)
+{
+   int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+int partition(int a[],int l,int h)
+{
+   int pivot=a[h];
+   int i=l-1;
+    for(int j=l;j<=h;j++)
+        {
+           if(a[j]<pivot)
+        {
+            i++;
+
+
+       swap(&a[i],&a[j]);
+        }
+    }
+    swap(&a[i+1],&a[h]);
+    return (i+1);
+}
+void quicksort(int a[],int l,int h)
+{
+    if(l<h)
+    {
+        int pivot=partition(a,l,h);
+        quicksort(a,l,pivot-1);
+        quicksort(a,pivot+1,h);
+
+    }
+}
+void printarray(int a[],int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+}
+int main()
+{
+    int data[]={16,122,433,44,5,6,54,56,54,56,43,56};
+    int n=sizeof(data)/sizeof(int);
+    quicksort(data,0,n-1);
+    printarray(data,n);
+
+}
+
+linked list:
+#include <bits/stdc++.h>
+using namespace std;
+
+// Define the Node structure
+struct Node {
+    int data; // The data stored in the node
+    Node* next; // Pointer to the next node
+};
+
+int main()
+{
+
+    // Initialize the head of the list
+    Node* head = nullptr;
+
+    // Create new nodes and add them to the list
+    for (int i = 1; i <= 5; i++) {
+        Node* newNode = new Node();
+        cin>>newNode->data ; // Replace i with the actual data
+        newNode->next = nullptr;
+
+        // Link the nodes
+        if (head == nullptr) {
+
+            // The list is empty, so the new node is the
+            // head of the list
+            head = newNode;
+        }
+        else {
+
+            // The list is not empty, traverse the list to
+            // find the last node
+            Node* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+
+            // Now temp points to the last node, link the
+            // new node
+            temp->next = newNode;
+        }
+    }
+
+    // Print the list
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+
+    // Free up the memory
+    while (head != nullptr) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    return 0;
+}
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    queue<int>q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    while(!q.empty())
+    {
+        cout<<q.front()<<endl;
+        q.pop();
+    }
+}
+
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node *left,*right;
+    node(int data)
+    {
+        this->data=data;
+        left=right=NULL;
+    }
+    };
+   void postordertraversal(struct node *temp)
+    { if(temp==NULL)
+    return;
+        postordertraversal(temp->left);
+        postordertraversal(temp->right);
+        cout<<temp->data<<"->";
+    }
+    int main()
+    {
+        struct node* root=new node(1);
+        root->left=new node(5);
+        root->right=new node(12);
+        root->left->left=new node(17);
+        root->left->right=new node(20);
+        root->right->left=new node(24);
+        root->right->left->left=new node(28);
+        root->right->left->left->right=new node(32);
+        cout<<"traversal: ";
+        postordertraversal(root);
+
+    }
+
+
+
+queue problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+
+
+
+
+
+
+int main()
+   {
+       optimize();
+       int n;
+       cin>>n;
+queue<ll>q;
+for(int i=0;i<n;i++)
+{
+    q.push(i+1);
+}
+int k;
+cin>>k;
+queue<ll>f;
+stack<ll>s;
+while(k--)
+{
+    s.push(q.front());
+    q.pop();
+}
+while(!s.empty())
+{
+    f.push(s.top());
+    s.pop();
+}
+while(!q.empty())
+{
+    f.push(q.front());
+    q.pop();
+}
+while(!f.empty())
+{
+    cout<<f.front()<<" ";
+    f.pop();
+    cout<<endl;
+}
+   }
+
+
+
+
+queue problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 1000000050
+
+
+int main()
+   {
+       optimize();
+       int n;
+       cin>>n;
+queue<ll>q;
+for(int i=0;i<n;i++)
+{ int a;
+cin>>a;
+    q.push(a);
+}
+
+queue<ll>f;
+stack<ll>s;
+while(!q.empty())
+{
+    s.push(q.front());
+    q.pop();
+}
+while(!s.empty())
+{
+    f.push(s.top());
+    s.pop();
+}
+
+while(!f.empty())
+{
+    cout<<f.front()<<" ";
+    f.pop();
+
+}
+   }
+
+
+adhoc partial um:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define mx 100000005
+
+
+
+void solve()
+{
+    int n,k,l,m=0,r;
+    cin>>n>>l>>r;
+    vector<int>v(n);
+    vector<int>v1;
+    for(int i=0;i<n;i++)
+    {cin>>v[i];
+    m+=v[i];
+    v1.pb(m);
+    }
+    for(auto u:v1)cout<<u<<" ";
+    cout<<endl;
+    if(l==0)
+    {cout<<v1[r]<<endl;}
+    else cout<<v1[r]-v1[l-1]<<endl;
+}
+int main()
+{ optimize();
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+}
+
+
+priority queue:
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define pi acos(-1)
+#define mx 100000005
+const int p=1e9+7;
+int main()
+{
+     optimize();
+   priority_queue<int,vector<int>,greater<int>>q;
+   q.push(2);
+   q.push(12);
+   q.push(7);
+   q.push(8);
+   q.push(14);
+   cout<<q.size()<<endl;
+   while(!q.empty())
+   {
+       cout<<q.top()<<endl;
+       q.pop();
+   }
+
+     }
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define pi acos(-1)
+#define mx 100000005
+const int p=1e9+7;
+int main()
+{
+     optimize();
+   priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>q;
+   q.push({2,12});
+   q.push({12,14});
+   q.push({1,5});
+   q.push({12,3});
+   q.push({4,6});
+   cout<<q.size()<<endl;
+   while(!q.empty())
+   {
+       cout<<q.top().first<<" "<<q.top().second<<endl;
+       q.pop();
+   }
+
+     }
+
+
+
+pririty queue problem solving:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define pi acos(-1)
+#define mx 100000005
+const int p=1e9+7;
+int main()
+{
+     optimize();
+   priority_queue<int>q;
+   int n;
+   cin>>n;
+   int a[n];
+   for(int i=0;i<n;i++)
+   {
+       cin>>a[i];
+       q.push(a[i]);
+       if(q.size()>=3)
+       {
+           int a1=q.top();
+           q.pop();
+           int a2=q.top();
+           q.pop();
+           int a3=q.top();
+           q.pop();
+           cout<<1LL*a1*a2*a3<<endl;
+           q.push(a1);
+           q.push(a2);
+           q.push(a3);
+       }
+       else cout<<-1<<endl;
+   }
+
+     }
+
+
+prioity queue problem solv hardest:
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define pi acos(-1)
+#define mx 100000005
+const int p=1e9+7;
+
+
+int main()
+{
+     optimize();
+int n;
+cin>>n;
+int a[n];
+int b[n];
+int c[n];
+    for(int i=0;i<n;i++)cin>>c[i];
+    for(int i=0;i<n;i++)cin>>a[i];
+    for(int i=0;i<n;i++)cin>>b[i];
+    priority_queue<int,vector<int>,greater<int>>q[5][5];
+    for(int i=0;i<n;i++)
+    {
+        q[a[i]][b[i]].push (c[i]);
+    }
+    int m;
+    cin>>m;
+
+
+   while(m--)
+    {
+        int c;
+        cin>>c;
+
+         int ans=INT_MAX;
+          int f,b;
+        for(int i=1;i<=3;i++)
+        {
+            if(!q[c][i].empty() &&q[c][i].top()<ans)
+            {
+                ans=q[c][i].top();
+                f=c,b=i;
+            }
+        }
+         for(int i=1;i<=3;i++)
+        {
+            if(!q[i][c].empty() &&q[i][c].top()<ans)
+            {
+                ans=q[i][c].top();
+                f=i,b=c;
+            }
+        }
+        if(ans==INT_MAX)ans=-1;
+        else
+        {
+                q[f][b].pop();
+        }
+        cout<<ans<<" ";
+    }
+    cout<<endl;
+
+        }
+
+
+
+convert a integer into 8 bit:
+
+int main()
+{ optimize();
+int n;
+cin>>n;
+stack<int>st;
+while(n>0)
+{
+    if(n%2==0){
+            st.push(0);
+    n=n/2;
+    }
+    else {
+        st.push(1);
+        n=n/2;
+    }
+}
+for(int i=0;i<8-st.size();i++)cout<<0;
+    while(!st.empty())
+    {
+        cout<<st.top();
+        st.pop();
+    }
+
+}
+
+
+
+bitwise operator:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+
+int main()
+{ optimize();
+ int n;
+ cin>>n;
+ //a=a|32;//boro theke choto
+ //a=(a&95);//choto theke boro
+ //if(a&1)cout<<"odd"<<endl;
+// else cout<<"even"<<endl;
+//A&1 korle A pai eikhae A=0 soho jekono kichu hoite pare 1 er sathe kono kichu and korle oitai pawa jai.
+//A&0 korle 0 pai
+//if((n&(n-1))==0)cout<<"power of 2"<<endl;
+//else cout<<"NOT POWER OF TWO"<<endl;
+ //cout<<<<endl;
+ //A^0=A 0 er shate kono kicu xor korle oi number ei pawa jai
+
+}
+
+
+find function use:
+
+
+int main()
+{
+ optimize();
+ vi v={1,4,5,7,5};
+ auto it=find(v.begin(),v.end(),3);
+ if(it==v.end())cout<<"value is not found"<<endl;
+ else{
+    cout<<"found value: "<<*it<<endl;
+    cout<<"found value index: "<<(it-v.begin())<<endl;
+
+ }
+
+}
+
+
+accumulate function uses:
+int main()
+{
+ optimize();
+ vi v={1,4,3,5,7,5};
+ cout<<accumulate(v.begin(),v.end(),0)<<endl;//sum o f a vector;
+
+}
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1);
+const double eps=1e-9;
+const int p=1e9+7;
+const int mx=(1<<16)+123;
+int n,a[20][20];
+int dp[20][mx];
+int solve(int x,int mask)
+{
+    if(x==n)return 0;
+    if(mask==((1<<n)-1))return 0;
+    //if(dp[x][mask]!=-1)return dp[x][mask];
+    int l=0;
+    for(int j=0;j<n;j++)
+    {
+        if(((1<<j) &mask)==0)
+        {
+            l=max(l,a[x][j]+solve(x+1,(1<<j)|mask));
+        }
+    }
+    return dp[x][mask]=l;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    for(int tc =0;tc<t;tc++)
+    {
+        cin>>n;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+        mem(dp,-1);
+        cout<<solve(0,0)<<endl;
+    }
+}
+
+
+bitwise operation :
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define endl '\n'
+#define pb push_back
+#define ll long long
+#define pi acos(-1)
+#define mx 100000005
+const int p=1e9+7;
+int main()
+{
+     optimize();
+   int n,c=0;
+   cin>>n;
+  //Prints the positions of all set (1) bits in binary representation of x
+   for(int i=0;i<32;i++)
+   {
+       if(n>>i &1)cout<<i<<" ";
+   }
+   cout<<endl;
+   // Sets the kth bit of x to 1
+  n=n|(1<<2);
+  cout<<n<<endl;
+   Sets the kth bit of x to 0
+  n=n&(~(1<<4));
+   cout<<n<<endl;
+   // Toggles the kth bit of x
+   n=n^(1<<2);
+   cout<<n<<endl;
+// Checks if x is a power of 2
+
+for(int i=0;i<32;i++)
+   {
+       if(n>>i &1)c++;
+   }
+   if(c==1)cout<<"POWER OF 2"<<endl;
+   else cout<<"NOT POWER OF TWO"<<endl;
+   }
+
+//sequence holo array teh gap thake r segment hol continuous
+
+
+MERGE SORT:
+
+
+#include<iostream>
+using namespace std;
+
+void mergie(int a[],int p,int q,int r)
+{
+    int n1=q-p+1;
+    int n2=r-q;
+    int c[n1],d[n2];
+    for(int i=0;i<n1;i++)c[i]=a[p+i];
+    for(int j=0;j<n2;j++)d[j]=a[q+1+j];
+
+    int i,j,k;
+    i=0;
+    j=0;
+    k=p;
+    while(i<n1 && j<n2)
+    {
+        if(c[i]<=d[j])
+        {
+            a[k]=c[i];
+            i++;
+        }
+        else
+        {
+            a[k]=d[j];
+            j++;
+        }
+        k++;
+    }
+    while(i<n1)
+    {
+        a[k]=c[i];
+        i++;
+        k++;
+    }
+    while(j<n2)
+    {
+        a[k]=d[j];
+        j++;
+        k++;
+
+    }
+}
+
+
+
+void mergesort( int a[],int l,int r)
+{
+    if(l<r)
+    {
+        int m=(l+r)/2;
+        mergesort(a,l,m);
+        mergesort(a,m+1,r);
+        mergie(a,l,m,r);
+    }
+}
+
+void printarray(int a[],int size)
+{
+    for(int i=0;i<size;i++)cout<<a[i]<<" ";
+    cout<<endl;
+}
+
+int main()
+{
+    int a[]={6,5,12,10,9,1};
+    int size=sizeof(a)/sizeof(a[0]);
+    mergesort(a,0,size-1);
+
+    cout<<"sorted array:  ";
+    printarray(a,size);
+    return 0;
+
+}
+
+#include<bits/stdc++.h>
+
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+
+#define ll long long
+
+
+int main()
+{ optimize();
+
+  ll n;
+  cin>>n;
+  vector<ll>v(n);
+  for(auto &i:v)cin>>i;
+  sort(v.begin(),v.end());
+  ll l=0,r=n-1,mid,k=98,d;
+  bool f=false;
+  while(l<=r)
+  {
+      mid=(l+r)/2;
+      if(v[mid]==k)
+      {d=mid;
+          f=true;
+          break;
+      }
+      else if(v[mid]<k)
+      {
+          l=mid+1;
+          //cout<<l<<endl;
+      }
+      else if(v[mid]>k)
+      {
+          r=mid-1;
+         // cout<<l<<endl;
+      }
+  }
+if(f)cout<<d<<endl;
+else cout<<"NOT FOUND"<<endl;
+}
+
+//count the numbr of divisor of a number code
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+
+
+
+ int main()
+    {
+        tawfiq();
+   int f,c=0;
+   cin>>f;
+   for(int i=1;i<=sqrt(f);i++)
+   {
+      if(f%i==0)
+      {
+          if(f/i==i)c++;
+          else c+=2;
+      }
+   }
+   cout<<c<<endl;
+}
+
+// a lot of numbers divisors count harmonic series
+:
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e7+123;
+
+int cnt[mx];
+ int main()
+    {
+        tawfiq();
+        //harmonic series time complexity(ln(n))
+        //total tc n*ln(n)
+  int n=1e3;
+  for(int i=1;i<=n;i++)
+  {
+      for(int j=i;j<=n;j+=i)
+      {
+          cnt[j]++;//contribution formula
+      }
+  }
+  for(int i=1;i<=n;i++)cout<<i<<": "<<cnt[i]<<endl;
+}
+
+//divisor of  number:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+
+int cnt[mx];
+ vector<int> v[mx];
+ int main()
+    {
+        tawfiq();
+
+
+  int n=1e6,s=0;
+
+  for(int i=1;i<=n;i++)
+  {
+      for(int j=i;j<=n;j+=i)
+      {
+         v[j].push_back(i);
+      }
+
+  }
+for(int i=1;i<=n;i++)
+{
+   for(auto u:v[i])cout<<u<<" ";
+   cout<<endl;
+}
+}
+
+solo speed 165 contest sieve problem
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6+5;
+int isprime[mx];
+
+void sieve()
+{
+    
+    for(int i=2;i<mx;i++)
+    {isprime[1]=1;
+    if(!isprime[i])
+        {
+            for(int j=i+i;j<mx;j+=i)
+        {
+            isprime[j]=1;
+        }
+    }
+    }
+
+}
+void solve()
+{
+    int n;
+      cin>>n;
+
+      int c=0,k=1,d=0;
+      while(n>0)
+      {
+          if(isprime[n]==0)
+          {
+              c++;
+              n=0;
+          }
+          else if(k<=n)
+          {
+              n-=k;
+              c++;
+              k*=2;
+          }
+          else {
+                cout<<-1<<endl;
+              return;
+          }
+      }
+     cout<<c<<endl;
+
+}
+ int main()
+    {
+        tawfiq();
+        sieve();
+        int t;
+        cin>>t;
+        while(t--)
+      {
+solve();
+      }
+    }
+
+
+sieve code form cps academy:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6;
+bool isprime[mx];
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {
+        for(int j=i+i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+pries.puh_back(2);
+    for(int i=2;i<=n;i++ )
+    {
+        if(isprime[i]==1)primes.push_back(i);
+    }
+}
+ int main()
+    {
+        tawfiq();
+      int n=20;
+      sieve(n);
+      for(auto u:primes)cout<<u<<endl;
+    }
+
+
+//prime factorization:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+bool isprime[mx];
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>prime_factor(int n)
+{int c=0;
+vector<int>factors;
+    for(auto u:primes)
+    {if((u*u)>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1){
+            factors.pb(n);
+    }
+    return factors;
+}
+int main()
+{
+    tawfiq();
+    int t;
+    cin>>t;
+while(t--)
+    {
+        int n;
+    cin>>n;
+    sieve(n);
+    vector<int>fac=prime_factor(n);
+for(auto u:fac)cout<<u<<" ";
+cout<<endl;
+}
+}
+
+
+
+
+
+
+
+
+prime factor problem cps academy:
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+bool isprime[mx];
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>prime_factor(int n)
+{int c=0;
+vector<int>factors;
+    for(auto u:primes)
+    {if((u*u)>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1){
+            factors.pb(n);
+    }
+    return factors;
+}
+int main()
+{
+    tawfiq();
+    int lim=1e6;
+
+    sieve(lim);
+    int n;
+    while(cin>>n)
+    {if(n==0)break;
+    bool isneg=false;
+    if(n<0)
+    {
+        isneg=true;
+        n*=-1;
+    }
+
+    vector<int>factors = prime_factor(n);
+    if(isneg)
+    {
+        n*=-1;
+        factors.insert(factors.begin(),-1);
+    }
+    cout<<n<<" = "<<factors[0];
+    for(int i=1;i<factors.size();i++)cout<<" x "<<factors[i];
+    cout<<endl;
+
+}
+}
+
+prime generation with 1e7 numbrs along with 
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e7+1;
+bitset<mx>isprime;
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>v[mx];
+int main()
+{
+    tawfiq();
+  int lim=1e2;
+    sieve(lim);
+
+    for(auto u:primes)
+    {
+        for(int i=u;i<=lim;i+=u)
+        {int n=i;
+           while(n%u==0)
+           {
+               v[i].pb(u);
+               n/=u;
+           }
+        }
+    }
+    for(int i=1;i<=lim;i++)
+    {cout<<i<<" : ";
+    for(auto u:v[i])cout<<u<<" ";
+    cout<<endl;
+
+}
+}
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define ll long long
+#define pb push_back
+const int mx=50;
+bitset<mx>isprime;
+int cnt[mx];
+vector<int>v[mx];
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    isprime[2]=1;
+    primes.pb(2);
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i]==1)
+
+    {   for(int j=i*i;j<=n;j+=i)
+       {
+           isprime[j]=0;
+       }
+
+    }
+    }
+    for(int i=3;i<=n;i+=2)if(isprime[i]==1)primes.pb(i);
+
+}
+
+
+
+
+void nod(int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=i;j<=n;j+=i)
+        {
+            cnt[j]++;
+        }
+    }
+   for(int i=1;i<=n;i++)cout<<i<<" : "<<cnt[i]<<endl;;
+  // cout<<endl;
+}
+
+
+
+
+
+
+
+
+int node(int n)
+{int no=1;
+    for(auto u:primes)
+    {if(1LL*u*u>n)break;
+        if(n%u==0)
+        {
+            int c=0;
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+            }
+            c++;
+            no*=c;
+        }
+    }
+        if(n>1)no*=2;
+
+    return no;
+}
+
+
+
+
+vector<int>prime_factors(int n)
+{vector<int>factors;
+    for(auto u:primes)
+    {
+        if(1LL*u*u>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1)factors.pb(n);
+    return factors;
+}
+
+
+
+
+int main()
+{
+    int lim=54;
+    sieve(lim);
+    for(auto u:primes)cout<<u<<" ";
+    cout<<endl;
+//    nod(lim);
+    cout<<node(lim)<<endl;
+    vector<int>v=prime_factors(lim);
+    for(auto u:v)cout<<u<<" ";
+}
+//prime factorization time complexity O(root(x)/ln(root (x)))
+
+map+vector ombination
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define nl '\n'
+
+int main(){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+    int test_case;    cin>>test_case;
+
+    for(int MJSaif=1; MJSaif<=test_case; MJSaif++){
+        int n;      cin>>n;
+        string s;       cin>>s;
+        map<int,vector<char>> mp;
+        vector<int> al(26);
+        for(int i=0;i<n;i++){
+            al[s[i]-'a']++;
+            mp[al[s[i]-'a']].push_back(s[i]);
+        }
+
+
+        string t;
+        for(auto &[a,b]:mp){
+               cout<<a<<" ";
+            sort(b.begin(),b.end());
+            int m=b.size();
+            for(int i=0;i<m;i++)    t.push_back(b[i]);
+        }
+        cout<<t<<nl;
+    }
+    return 0;
+}
+convert a integer into a character :
+static_cast<char>(22+97);
+
+bijor sonkok 1 hole xor 1 r jor sonkok 1 hoile xor 0
+//properties of mod:
+//(a+b)%m=((a%m)+(b%m))%m;
+//(a-b)%m=((a%m)-(b%m))%m;
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e9+7;
+const int mx=(1<<16)+123;
+int dp[100];
+int fib(int n)
+{
+    if(n==0)return 0;
+    if(n==1)return 1;
+    if(dp[n]!=-1)return dp[n];
+    return dp[n]=(fib(n-1)+fib(n-2));
+}
+
+
+int main()
+{optimize();
+int n=25;
+mem(dp,-1);
+for(int i=0;i<=n;i++)cout<<fib(i)<< " ";
+
+}
+
+
+
+
+
