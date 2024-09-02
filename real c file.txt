@@ -5287,6 +5287,87 @@ for(int i=0;i<=n;i++)cout<<fib(i)<< " ";
 }
 
 
+//adjacency matrix and adjacency list 
 
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e5+7;
+const int mx=112;
+int adjMax[mx][mx];
+
+vector<int>adj[p];
+vector<pair<int,int>>adj1[p];
+int main()
+{
+    tawfiq();
+   /* int n;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)cin>>adjMat[i][j];
+    }*/
+
+
+
+
+   /* int n,m;
+    cin>>n>>m;
+  for(int i=0;i<m;i++)
+    {
+        int u,v;
+        cin>>u>>v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+    for(int i=1;i<=n;i++)
+    {cout<<"adjacent list of"<<i<<": ";
+       for(auto u:adj[i])cout<<u<<" ";
+       cout<<endl;
+    }
+    */
+
+//weighted graph
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=m;i++)
+    {
+        int u,v,w;
+        cin>>u>>v>>w;
+        adj1[u].pb({v,w});
+        adj1[v].pb({u,w});
+    }
+    for(int i=1;i<=n;i++)
+    {cout<<"from node: "<<i<<endl;
+        for(auto u:adj1[i])cout<<u.first<<" "<<u.second<<endl;
+    }
+}
 
 
