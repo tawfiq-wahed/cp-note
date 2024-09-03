@@ -5371,3 +5371,21 @@ int main()
 }
 
 
+
+//using map with 0 index :
+it works without declaring map like and assigning the value with index:
+vi cnt(n);
+for(int i=0;i<n;i++)cnt[a[i]-1]++;
+that work from 0 index
+
+
+//using map by indexing with declaring map:
+map<int,int>cnt;
+for(auto &i:v)cnt[i]++;
+that work from 1 index
+
+
+using map by value:
+map<int,int>cnt;
+for(int i=0 ;i<n;i++)cnt[a[i]]++;
+that work from 1 index
