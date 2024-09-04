@@ -5389,3 +5389,88 @@ using map by value:
 map<int,int>cnt;
 for(int i=0 ;i<n;i++)cnt[a[i]]++;
 that work from 1 index
+
+
+//clearify some vector and partial sum problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e6;
+const int mx=2e5+123;
+
+void solve()
+{
+  int n;
+  cin>>n;
+  vi v(n);//vector ekbar declare korle n index soho jekono index er modde value assign kora jai even limit ortath eikhane declare kora n er ceye besy index e value assign kora jai;
+  vi v1(n+1);//input dewar time e array er moto kaj kore kintu;
+  vi a(n);
+  vi a1(n);
+//vi v thakle kono value input newa jai nh
+
+
+  for(int i=0;i<n;i++)cin>>v[i];
+  for(int i=1;i<=n;i++)cin>>v1[i];
+  for(int i=1;i<=n;i++)
+  {
+      a[i]=a[i-1]+v[i-1];
+  }
+  
+  
+  vi v2;
+ // v2[5]=500;//vector er size declare nh korle value assign kora jai nh tobe size declare korle size er ceye boro index er value assign kora jai
+  a1[5]=100;
+  cout<<a1[5]<<endl;
+  
+  
+  for(int i=1;i<=n;i++)
+  {
+      a1[i]=a1[i-1]+v1[i];
+  }
+  
+  
+  for(int i=1;i<=n;i++)cout<<a[i]<<" ";
+  cout<<endl;
+  for(int i=1;i<=n;i++)cout<<a1[i]<<" ";
+  cout<<endl;
+
+}
+int main()
+{
+tawfiq();
+int t;
+cin>>t;
+while(t--)
+{
+solve();
+}
+}
+
