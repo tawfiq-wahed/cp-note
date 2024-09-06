@@ -5546,3 +5546,76 @@ int main()
 
 }
 
+
+//no of leaf node count
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e9;
+const int mx=1e6+123;
+int vis[mx];
+int cnt,ans;
+bool isnode[mx];
+vector<int> adj[mx];
+
+void dfs(int u,int c)
+{
+    vis[u]=1;
+    int d=0;
+    for(auto v:adj[u])
+    {
+        if(v!=c)
+        {
+            dfs(v,u);
+            d++;
+        }
+    }
+    if(d==0)cnt++;
+}
+
+signed main()
+{
+    int n,m;
+    cin>>n>>m;
+    for(int i=0;i<m;i++)
+    {
+        int u,v;
+        cin>>u>>v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+    dfs(1,-1);
+    cout<<cnt<<endl;
+}
+// easy way :if(n!=1 && adj[u].size()==1)
+
+
+
