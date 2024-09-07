@@ -5617,5 +5617,107 @@ signed main()
 }
 // easy way :if(u!=1 && adj[u].size()==1)cnt++;
 
+light oj solution :
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e9;
+const int mx=1e6+123;
+int cnt,cnt1,ans;
+vector<int>adj[mx];
+int vis[mx];
+int node[mx];
+void dfs(int u,int col)
+{
+    vis[u]=1;
+    if(col==1)cnt1++;
+    cnt++;
+    int tmp;
+    if(col==1)tmp=2;
+    else tmp=1;
+    for(auto v:adj[u])
+    {
+        if(vis[v]==0)
+        {
+            dfs(v,tmp);
+        }
+    }
+
+}
+
+
+
+
+
+
+  int main() {
+   int t;
+   cin>>t;
+ for(int i=1;i<=t;i++)
+   {ans=0;
+       int m;
+       cin>>m;
+       for(int i=0;i<mx;i++)
+       {
+           vis[i]=0;
+           node[i]=0;
+           adj[i].clear();
+       }
+      for(int i=0;i<m;i++)
+       {
+           int u,v;
+           cin>>u>>v;
+           adj[u].pb(v);
+           adj[v].pb(u);
+           node[u]=1;
+           node[v]=1;
+       }
+
+   for(int i=1;i<=2e4;i++)
+   {
+       if(node[i]==1 &&vis[i]==0)
+       {
+           cnt=0,cnt1=0;
+           dfs(i,1);
+           ans+=max(cnt1,cnt-cnt1);
+       }
+   }
+   cout<<"Case "<<i<<": "<<ans<<endl;
+   }
+}
+
+
+
+
+
+
 
 
