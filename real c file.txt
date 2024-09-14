@@ -5798,6 +5798,202 @@ int main()
 
 
 
+hard uva problem shortest path print by bfs in cps academy class 6:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e9;
+const int mx=1e5+123;
+map<string,vector<string>>adj;
+map<string,string>par;
+map<string,int>lev;
+void bfs(string s)
+{lev.clear();
+    lev[s]=1;
+    queue<string>q;
+    q.push(s);
+    while(!q.empty())
+          {
+              string u=q.front();
+                q.pop();
+    for(auto v:adj[u])
+    {
+        if(lev[v]==0)
+        {
+            lev[v]=lev[u]+1;
+            par[v]=u;
+            q.push(v);
+        }
+    }
+          }
+
+}
+
+int main()
+{ tawfiq();
+    int t;
+    bool yes=0;
+    while(cin>>t)
+    {if(yes)cout<<endl;
+    yes=1;
+    adj.clear();
+    par.clear();
+    for(int i=0;i<t;i++)
+    {
+        string u,v;
+        cin>>u>>v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+    string s,t;cin>>s>>t;
+    bfs(s);
+    if(lev[t]==0)
+        {
+            cout<<"No route"<<endl;
+            continue;
+        }
+    vector<pair<string,string>>ans;
+    while(!par[t].empty())
+    {
+        ans.pb({par[t],t});
+        t=par[t];
+    }
+      reverse(ans.begin(),ans.end());
+      for(auto u:ans)cout<<u.first<<" "<<u.second<<endl;
+    }
+}
+
+
+
+bfs level count :
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+#define show(a)           \
+    for (auto e : a)      \
+        cout << e << " "; \
+    cout << endl;
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=-1e10;
+const int mx=1e5+123;
+#define r1 \
+    cout << "YES" << endl;\
+    return;
+#define r0 \
+    cout << "NO" << endl;\
+    return;\
+#define r return
+vector<int>adj[mx];
+int level[mx];
+
+void bfs(int s)
+{
+    mem(level,-1);
+    level[s]=0;
+    queue<int>q;
+    q.push(s);
+    while(!q.empty())
+    {
+        int u=q.front();
+        q.pop();
+        for(auto v:adj[u])
+        {
+            if(level[v]==-1)
+            {
+                level[v]=level[u]+1;
+                q.push(v);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+int main()
+{ tawfiq();
+int t;
+   cin>>t;
+
+   while(t--)
+   {
+int n,m;
+cin>>n>>m;
+for(int i=0;i<mx;i++)adj[i].clear();
+for(int i=0;i<m;i++)
+{
+   int u,v;
+   cin>>u>>v;
+   adj[u].pb(v);
+   adj[v].pb(u);
+}
+bfs(1);
+cout<<level[n]<<endl;
+    }
+}
+
+
+
 
 
 
