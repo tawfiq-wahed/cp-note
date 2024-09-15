@@ -6087,6 +6087,158 @@ int main()
 }
 
 
+hardest problem in cps academy of shortest path detection using different sources class no 6 light oj problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+#define show(a)           \
+    for (auto e : a)      \
+        cout << e << " "; \
+    cout << endl;
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=210;
+#define r1 \
+    cout << "YES" << endl;\
+    return;
+#define r0 \
+    cout << "NO" << endl;\
+    return;\
+#define r return
+char c[mx][mx];
+vector<pair<int,int>>s;
+int fire[mx][mx];
+int jan[mx][mx];
+int n,m;
+void bfs_fire()
+{
+    mem(fire,-1);
+    queue<pair<int,int>>q;
+    for(auto u:s)
+    {
+        q.push(u);
+        fire[u.F][u.S]=0;
+    }
+    while(!q.empty())
+          {
+              int x=q.front().first;
+              int y=q.front().second;
+    q.pop();
+    for(int i=0;i<4;i++)
+    {
+        int x1=x+dx[i];
+        int y1=y+dy[i];
+       if(x1>=1 &&x1<=n &&y1<=m &&y1>=1 &&c[x1][y1]!='#' &&fire[x1][y1]==-1)
+       {
+           fire[x1][y1]=fire[x][y]+1;
+           q.push({x1,y1});
+       }
+    }
+          }
+}
+void bfs_jan(int xs,int ys)
+{
+   mem(jan,-1);
+   queue<pair<int,int>>q;
+    q.push({xs,ys});
+    jan[xs][ys]=0;
+    while(!q.empty())
+    {
+        int x=q.front().F;
+        int y=q.front().S;
+        q.pop();
+        for(int i=0;i<4;i++)
+        {
+            int x1=x+dx[i];
+            int y1=y+dy[i];
+            if(x1>=1 &&x1<=n &&y1>=1 &&y1<=m &&c[x1][y1]!='#' &&jan[x1][y1]==-1 &&jan[x][y]+1<fire[x1][y1])
+            {
+                jan[x1][y1]=jan[x][y]+1;
+                q.push({x1,y1});
+            }
+        }
+    }
+}
+
+int main()
+{
+    tawfiq();
+    int t;
+    cin>>t;
+    for(int i=1;i<=t;i++)
+    {s.clear();
+        cin>>n>>m;
+        int x,y;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=m;j++)
+            {
+                cin>>c[i][j];
+                if(c[i][j]=='J')
+                {
+                    x=i,y=j;
+                }
+                else if(c[i][j]=='F')
+                {
+                    s.pb({i,j});
+                }
+            }
+        }
+      bfs_fire();
+      bfs_jan(x,y);
+     int ans=p;
+      for(int i=1;i<=n;i++)
+      {
+          if(jan[i][1]!=-1)ans=min(ans,jan[i][1]);
+      }
+       for(int i=1;i<=n;i++)
+      {
+          if(jan[i][m]!=-1)ans=min(ans,jan[i][m]);
+      }
+       for(int i=1;i<=m;i++)
+      {
+          if(jan[1][i]!=-1)ans=min(ans,jan[1][i]);
+      }
+       for(int i=1;i<=m;i++)
+      {
+          if(jan[n][i]!=-1)ans=min(ans,jan[n][i]);
+      }
+      if(ans==p)cout<<"Case "<<i<<": IMPOSSIBLE"<<endl;
+      else cout<<"Case "<<i<<": "<<ans+1<<endl;
+    }
+}
+
 
 
 
