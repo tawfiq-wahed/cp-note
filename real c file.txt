@@ -5992,6 +5992,99 @@ cout<<level[n]<<endl;
     }
 }
 
+cps academy bipartite problem with bfs solved:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+#define show(a)           \
+    for (auto e : a)      \
+        cout << e << " "; \
+    cout << endl;
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=-1e10;
+const int mx=210;
+#define r1 \
+    cout << "YES" << endl;\
+    return;
+#define r0 \
+    cout << "NO" << endl;\
+    return;\
+#define r return
+vector<int>adj[mx];
+int col[mx];
+bool isbipartite(int s)
+{
+    mem(col,-1);
+   col[s]=1;
+    queue<int>q;
+    q.push(s);
+    while(!q.empty())
+    {
+        int u=q.front();
+        q.pop();
+        for(auto v:adj[u])
+        {
+            if(col[v]==-1)
+            {
+                if(col[u]==1)col[v]=2;
+                else if(col[u]=2)col[v]=1;
+                q.push(v);
+            }
+            if(col[v]==col[u])return 0;
+
+        }
+    }
+    return 1;
+}
+
+int main()
+{
+    int n;
+    while(cin>>n)
+    {for(int i=0;i<mx;i++)adj[i].clear();
+        if(n==0)break;
+        int m,u,v;
+        cin>>m;
+        for(int i=0;i<m;i++)
+        {
+            cin>>u>>v;
+            adj[u].pb(v);
+            adj[v].pb(u);
+        }
+       if(isbipartite(0))cout<<"BICOLORABLE."<<endl;
+       else cout<<"NOT BICOLORABLE."<<endl;
+
+    }
+}
 
 
 
