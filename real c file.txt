@@ -6266,6 +6266,33 @@ int main()
     cout<<c<<endl;
 }
 
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const ll mx=1e9+1;
+const int p=2e5+12;
+//maximum sum in an array kadane's algorithm
+int main()
+{ tawfiq();
+    ll n;
+    cin>>n;
+   ll a[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+   ll max1=a[0];
+   ll max2=a[0];
+   
+   for(int i=1;i<n;i++)
+   {
+       max2=max(a[i],max2+a[i]);
+       if(max2>max1)max1=max2;
+       cout<<max1<<endl;
+   }
+   cout<<max1<<endl;
+}
 
 
 
