@@ -6294,5 +6294,77 @@ int main()
    cout<<max1<<endl;
 }
 
+snod:sum of number of divisors 1 theke 15 porjonto joto number ase oigular divisor koita oigular jogfol:such as n=15 hoile snod=45.
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e5+123;
+bool isprime[mx];
+vector<int>primes;
+
+//root(n)time complexity;
+
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    int n;
+    cin>>n;
+ int sq=sqrt(n);
+ ll snod=sq;
+ for(int i=1;i<=sq;i++)
+ {
+     snod+=((n/i)-i)*2;
+ }
+ cout<<snod<<endl;
+  }
+}
+aita n complexity r sieve er  n*log(root(n)/root(n)) complexity er diye o kora jai r O(n2) diye o kora jai.
+
 
 
