@@ -6346,6 +6346,7 @@ bool isprime[mx];
 vector<int>primes;
 
 //root(n)time complexity;
+//divisor symmetric function
 
 int main()
 {
