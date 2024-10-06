@@ -6367,7 +6367,7 @@ int main()
 }
 aita n complexity r sieve er  n*log(root(n)/root(n)) complexity er diye o kora jai r O(n2) diye o kora jai.
 
-sum of divisors with prime factorization complexity class no :7:
+sum of divisors with prime factorization complexity class no :7 r aita sod bole jmn 40 er divisor gular summation:
 #include<bits/stdc++.h>
 #include<cmath>
 #include<cstring>
@@ -6384,35 +6384,7 @@ using namespace std;
 #define S second
 #define pb push_back
 #define ll long long
-#define all(a) (a).begin(),(a).end()
-#define mod 1000000007
-#define mem(a,b) memset(a,b,sizeof(a))
-#define gcd(a,b) __gcd(a,b)
-#define sqr(a) ((a)*(a))
 
-#define fo(n) for (int i = 0; i < n; i++)
-#define fo1(n) for (int i = 1; i <= n; i++)
-#define rsrt(a) sort(a.begin(), a.end(), greater<>())
-
-
-
-typedef double dl;
-typedef vector<int>vi;
-typedef vector<ll>vll;
-typedef pair<int,int>pii;
-typedef pair<ll,ll>pll;
-typedef vector<pair<int,int>>vpii;
-typedef vector<pair<ll,ll>>vpll;
-
-
-int dx[]={0,0,+1,-1,+1,+1,-1,-1};
-int dy[]={+1,-1,0,0,+1,-1,+1,-1};
-
-
-
-const double PI=acos(-1.0);
-const double eps=1e-9;
-const int p=2e9;
 const int mx=1e8+123;
 const ll inf=1e16;
 bool isprime[mx];
