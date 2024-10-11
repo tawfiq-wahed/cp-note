@@ -6811,6 +6811,7 @@ int main()
 int lim=5e6+123;
 sieve(lim);
 for(int i=1;i<=lim;i++)phi[i]=i;
+../*euler phi through harmonic series::
 for(auto u:primes)
 {
     for(int j=u;j<=lim;j+=u)
@@ -6818,7 +6819,7 @@ for(auto u:primes)
         phi[j]/=u;
         phi[j]*=(u-1);
     }
-}
+}*/..
 for(int i=1;i<=lim;i++)
 {
     phi[i]=(phi[i]*phi[i])+phi[i-1];
@@ -6832,6 +6833,128 @@ for(int i=1;i<=t;i++)
     cout<<"case "<<i<<": "<<phi[b]-phi[a-1]<<endl;
 }
 }
+
+
+
+
+
+LCM SUM:(PHI(DIVISOR)*(DIVISOR)+1)*N/2,IT'S THE HARDEST TOPIC CLASS NO:10 SECOND PROBLEM
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e6+123;
+const ll inf=1e16;
+bitset<mx>isprime;
+vector<int>primes;
+
+
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    isprime[2]=1;
+    primes.pb(2);
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+    {
+            for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i])primes.pb(i);
+    }
+}
+
+ long long phi[mx];
+long long ans[mx];
+
+int main()
+{tawfiq();
+int lim=1e6+123;
+sieve(lim);
+for(int i=1;i<=lim;i++)phi[i]=i;
+for(auto u:primes)
+{
+    for(int j=u;j<=lim;j+=u)
+    {
+        phi[j]/=u;
+        phi[j]*=(u-1);
+    }
+}
+//Theory of lcm sum
+for(int i=1;i<=lim;i++)
+{
+    for(int j=i;j<=lim;j+=i)
+    {
+        ans[j]+=(phi[i]*i);
+    }
+}
+int t;
+cin>>t;
+while(t--)
+{
+    int n;
+    cin>>n;
+    ll c=ans[n]+1;
+    c*=n;
+    c/=2;
+    cout<<c<<endl;
+}
+}
+
+
+
+
+
+
 
 
 
