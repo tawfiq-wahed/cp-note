@@ -6929,7 +6929,7 @@ for(auto u:primes)
         phi[j]*=(u-1);
     }
 }
-//Theory of lcm sum
+//Theory of lcm sum : <=n number er lcm er jogfol
 for(int i=1;i<=lim;i++)
 {
     for(int j=i;j<=lim;j+=i)
