@@ -6956,7 +6956,7 @@ while(t--)
 }
 }
 
-codemarshal module 3 no:11 problem:
+codemarshal module 3 class no:11 problem:
 
 #include<bits/stdc++.h>
 #include<cmath>
