@@ -1,0 +1,239 @@
+
+dynamic programming :
+frog 1 atcoder:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+//c=(sqrt(1+8*n)-1)/2 nth value of n*(n+1)/2 less than given value
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=998244;
+const int mx=(1<<16)+123;
+
+int dx[]={0,1,-1,0};
+int dy[]={1,0,0,-1};
+//bool isprime[p];
+
+vector<int>adj[1000];
+int a,b;
+bool vis[1000];
+int lev[1000];
+int dp[100004];
+int n;
+int v[100004];
+
+
+int solve(int i)
+ {if(i==n-1)return 0;
+if(dp[i]!=-1)return dp[i];
+int a=2e9,b=2e9;
+if(i+1<=n-1)a=abs(v[i]-v[i+1])+solve(i+1);
+if(i+2<=n-1)b=abs(v[i]-v[i+2])+solve(i+2);
+dp[i]= min(a,b);
+return dp[i];
+
+ }
+
+
+
+
+ int main()
+ {tawfiq();
+mem(dp,-1);
+cin>>n;
+for(int i=0;i<n;i++)cin>>v[i];
+cout<<solve(0)<<endl;;
+
+ }
+
+
+
+
+frog 2 atcoder:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+//c=(sqrt(1+8*n)-1)/2 nth value of n*(n+1)/2 less than given value
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=998244;
+const int mx=(1<<16)+123;
+
+int dx[]={0,1,-1,0};
+int dy[]={1,0,0,-1};
+//bool isprime[p];
+
+vector<int>adj[1000];
+int a,b,k;
+bool vis[1000];
+int lev[1000];
+int dp[100004];
+int n;
+int v[100004];
+
+
+int solve(int i)
+ {if(i==n-1)return 0;
+if(dp[i]!=-1)return dp[i];
+int a=2e9;
+for(int j=1;j<=k;j++)
+{
+    if(i+j<=n-1)b=abs(v[i]-v[i+j])+solve(i+j);
+    a=min(a,b);
+}
+
+dp[i]=a;
+return dp[i];
+
+ }
+
+
+
+
+ int main()
+ {tawfiq();
+mem(dp,-1);
+cin>>n>>k;
+for(int i=0;i<n;i++)cin>>v[i];
+cout<<solve(0)<<endl;;
+
+ }
+
+
+vacation atcoder:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+//c=(sqrt(1+8*n)-1)/2 nth value of n*(n+1)/2 less than given value
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=1e5+123;
+const int mx=1e5+123;
+
+
+
+bool vis[1005];
+vector<int> adj[1005];
+ll cnt[1005];
+
+ll dx[]={0,0,+1,-1,+1,+1,-1,-1};
+ll dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+int n;
+int dp[mx][4];
+int a[mx][4];
+int solve(int i,int f1)
+{
+    if(i>n)return 0;
+    if(dp[i][f1]!=-1)return dp[i][f1];
+    int ret=0;
+    for(int j=1;j<=3;j++)
+    {
+       if(f1!=j) {
+            ret=max(ret,a[i][j]+solve(i+1,j));
+       }
+    }/*dp[i][f1]=ret;
+        cout<<i<<" "<<f1<<" "<<dp[i][f1]<<endl;*/
+
+    return dp[i][f1]=ret ;
+
+}
+
+
+ int main()
+ {tawfiq();
+cin>>n;
+for(int i=1;i<=n;i++)
+{
+    cin>>a[i][1]>>a[i][2]>>a[i][3];
+}
+mem(dp,-1);
+cout<<solve(1,0)<<endl;;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
