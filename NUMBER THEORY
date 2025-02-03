@@ -522,3 +522,787 @@ int main()
 }
 //prime factorization time complexity O(root(x)/ln(root (x)))
 
+
+
+
+
+
+
+snod:sum of number of divisors 1 theke 15 porjonto joto number ase oigular divisor koita oigular jogfol:such as n=15 hoile snod=45.
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e5+123;
+bool isprime[mx];
+vector<int>primes;
+
+//root(n)time complexity;
+//divisor symmetric function
+
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    int n;
+    cin>>n;
+ int sq=sqrt(n);
+ ll snod=sq;
+ for(int i=1;i<=sq;i++)
+ {
+     snod+=((n/i)-i)*2;
+ }
+ cout<<snod<<endl;
+  }
+}
+aita n complexity r sieve er  n*log(root(n)/root(n)) complexity er diye o kora jai r O(n2) diye o kora jai.
+
+sum of divisors with prime factorization complexity class no :7 r aita sod bole jmn 40 er divisor gular summation:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+
+const int mx=1e8+123;
+const ll inf=1e16;
+bool isprime[mx];
+vector<int>primes;
+void sieve(ll n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    primes.pb(2);
+    isprime[2]=1;
+    ll sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {
+        for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i]==1)primes.pb(i);
+    }
+}
+ll sod(ll n)
+{ll sood=1;
+    for(auto u:primes)
+    {if(1ll*u*u>n)break;
+    if(n%u==0)
+        {
+            ll sum=0;
+        ll a=1;
+        while(n%u==0)
+        {
+           a*=u;
+           sum+=a;
+           n/=u;
+        }
+
+        sood*=(sum+1);
+        }
+    }
+    if(n>1)sood*=(n+1);
+    return sood;
+}
+
+int main()
+{
+    tawfiq();
+fraction();
+ll n=1e8;
+sieve(n);
+cout<<sod(n);
+
+}
+
+//sod with root(n) complexity sum of divisir uporer case just ei case er time complexity besy:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e8+123;
+const ll inf=1e16;
+bool isprime[mx];
+vector<int>primes;
+
+int main()
+{
+    tawfiq();
+fraction();
+int n=84;
+int sq=sqrt(n);
+ll s=0;
+for(int i=1;i<=sq;i++)
+{
+    if(n%i==0 &&n/i!=i)
+    {
+        s+=i;
+        s+=n/i;
+    }
+    if(n%i==0 &&n/i==i )s+=i;
+}
+cout<<s<<endl;
+}
+
+
+pi totipotent function:class no 8 module 3
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e8+123;
+const ll inf=1e16;
+bool isprime[mx];
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    int sq=sqrt(n);
+    primes.pb(2);
+    isprime[2]=1;
+    for(int i=3;i<=sq;i++)
+    {
+        for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i]=1)primes.pb(i);
+    }
+}
+
+vector<int>prime_factors(int n)
+{
+    vector<int>factors;
+ for(auto u:primes)
+ {
+     if(1ll*u*u>n)break;
+     if(n%u==0)
+     {factors.pb(u);
+         while(n%u==0)
+         {
+             n/=u;
+         }
+     }
+ }
+ if(n>1)factors.pb(n);
+ return factors;
+}
+
+//pi totipotent function pi(n)=N*((p1-1)/p1)*((p2-1)/p2)*((pk-1)/pk) here p1 p2 p3 is prime factorizations prime numbers
+
+int main()
+{
+int lim=84;
+sieve(lim);
+vector<int>factors=prime_factors(lim);
+int k=lim;
+for(auto u:factors)
+{
+    k*=(u-1);
+    k/=u;
+}
+cout<<k<<endl;
+}
+
+
+best way to write euler pie function for cp:the process above  may get TLE thats why
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e7+123;
+const ll inf=1e16;
+bitset<mx>isprime;
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    int sq=sqrt(n);
+    primes.pb(2);
+    isprime[2]=1;
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+        {for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+        }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i]==1)primes.pb(i);
+    }
+}
+ll factors(int n)
+{
+   ll k=n;
+ for(auto u:primes)
+ {
+     if(1ll*u*u>n)break;
+     if(n%u==0)
+     {k/=u;
+     k*=(u-1);
+         while(n%u==0)
+         {
+             n/=u;
+         }
+     }
+ }
+ if(n>1)
+ {
+     k/=n;
+     k*=(n-1);
+ }
+ return k;
+}
+
+//pi totipotent function pi(n)=N*((p1-1)/p1)*((p2-1)/p2)*((pk-1)/pk) here p1 p2 p3 is prime factorizations prime numbers
+
+int main()
+{tawfiq();
+int t;
+cin>>t;
+int n=1e6;
+sieve(n);
+while(t--)
+{int  lim;
+cin>>lim;
+cout<<factors(lim)<<endl;
+
+}
+}
+
+
+//we use unsigned long long for largest values for which long long can't work;
+//euler pie function with harmonic series 
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=5e6+123;
+const ll inf=1e16;
+bitset<mx>isprime;
+vector<int>primes;
+
+
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    isprime[2]=1;
+    primes.pb(2);
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+    {
+            for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i])primes.pb(i);
+    }
+}
+
+
+unsigned long long phi[mx];
+
+
+
+
+int main()
+{tawfiq();
+int lim=5e6+123;
+sieve(lim);
+for(int i=1;i<=lim;i++)phi[i]=i;
+../*euler phi through harmonic series::
+for(auto u:primes)
+{
+    for(int j=u;j<=lim;j+=u)
+    {
+        phi[j]/=u;
+        phi[j]*=(u-1);
+    }
+}*/..
+for(int i=1;i<=lim;i++)
+{
+    phi[i]=(phi[i]*phi[i])+phi[i-1];
+}
+int t;
+cin>>t;
+for(int i=1;i<=t;i++)
+{
+    int a,b;
+    cin>>a>>b;
+    cout<<"case "<<i<<": "<<phi[b]-phi[a-1]<<endl;
+}
+}
+
+
+
+
+
+LCM SUM:(PHI(DIVISOR)*(DIVISOR)+1)*N/2,IT'S THE HARDEST TOPIC CLASS NO:10 SECOND PROBLEM
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=1e6+123;
+const ll inf=1e16;
+bitset<mx>isprime;
+vector<int>primes;
+
+
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    isprime[2]=1;
+    primes.pb(2);
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+    {
+            for(int j=i*i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+    }
+    for(int i=3;i<=n;i+=2)
+    {
+        if(isprime[i])primes.pb(i);
+    }
+}
+
+ long long phi[mx];
+long long ans[mx];
+
+int main()
+{tawfiq();
+int lim=1e6+123;
+sieve(lim);
+for(int i=1;i<=lim;i++)phi[i]=i;
+for(auto u:primes)
+{
+    for(int j=u;j<=lim;j+=u)
+    {
+        phi[j]/=u;
+        phi[j]*=(u-1);
+    }
+}
+//Theory of lcm sum : <=n number er lcm er jogfol
+//1 n=1
+//2+2 n=2
+//3+6+3 n=3
+//4+4+12+4 n=4
+//5+10+15+20+5 n=5
+//6+6+6+12+30+6 n=6
+for(int i=1;i<=lim;i++)
+{
+    for(int j=i;j<=lim;j+=i)
+    {
+        ans[j]+=(phi[i]*i);
+    }
+}
+int t;
+cin>>t;
+while(t--)
+{
+    int n;
+    cin>>n;
+    ll c=ans[n]+1;
+    c*=n;
+    c/=2;
+    cout<<c<<endl;
+}
+}
+
+codemarshal module 3 class no:11 problem:
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+using namespace std;
+
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+#define fo(n) for (int i = 0; i < n; i++)
+#define fo1(n) for (int i = 1; i <= n; i++)
+#define rsrt(a) sort(a.begin(), a.end(), greater<>())
+
+
+
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+
+int dx[]={0,0,+1,-1,+1,+1,-1,-1};
+int dy[]={+1,-1,0,0,+1,-1,+1,-1};
+
+
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const int p=2e9;
+const int mx=5e6+1234;
+const ll inf=1e16;
+bitset<mx>isprime;
+vector<int>primes;
+void sieve(int n)
+{
+    isprime[2]=1;
+    primes.pb(2);
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+        {
+            for(int j=i*i;j<=n;j+=i)
+        {
+           isprime[j]=0;
+        }
+        }
+    }
+    for(int i=3;i<=n;i+=2){
+            if(isprime[i]==1)
+    {
+        primes.pb(i);
+    }
+    }
+}
+unsigned long long phi[mx];
+int32_t main()
+{tawfiq();
+int lim=5e6+123;
+sieve(lim);
+
+for(int i=1;i<=lim;i++)phi[i]=i;
+for(auto u:primes)
+{
+    for(int j=u;j<=lim;j+=u)
+    {
+        phi[j]/=u;
+        phi[j]*=(u-1);
+    }
+}
+for(int i=1;i<=lim;i++)
+{
+    phi[i]+=phi[i-1];
+}
+//cout<<phi[62]<<endl;
+int t;
+cin>>t;
+for(int i=1;i<=t;i++)
+{ll n,p;
+cin>>n>>p;
+    ll l=1,r=n;
+ll g=-1;
+while(l<=r)
+{
+  ll mid=(l+r)/2;
+   ll x=n/mid;
+   if(phi[x]>=p)
+   {
+       g=max(g,mid);
+       l=mid+1;
+   }
+   else r=mid-1;
+}
+cout<<"Case "<<i<<": "<<g<<endl;
+}
+}
+
+
