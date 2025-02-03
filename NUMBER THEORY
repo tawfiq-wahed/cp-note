@@ -1,0 +1,524 @@
+//count the numbr of divisor of a number code
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+
+
+
+ int main()
+    {
+        tawfiq();
+   int f,c=0;
+   cin>>f;
+   for(int i=1;i<=sqrt(f);i++)
+   {
+      if(f%i==0)
+      {
+          if(f/i==i)c++;
+          else c+=2;
+      }
+   }
+   cout<<c<<endl;
+}
+
+// a lot of numbers divisors count harmonic series
+:
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e7+123;
+
+int cnt[mx];
+ int main()
+    {
+        tawfiq();
+        //harmonic series time complexity(ln(n))
+        //total tc n*ln(n)
+  int n=1e3;
+  for(int i=1;i<=n;i++)
+  {
+      for(int j=i;j<=n;j+=i)
+      {
+          cnt[j]++;//contribution formula
+      }
+  }
+  for(int i=1;i<=n;i++)cout<<i<<": "<<cnt[i]<<endl;
+}
+
+//divisor of  number:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+
+int cnt[mx];
+ vector<int> v[mx];
+ int main()
+    {
+        tawfiq();
+
+
+  int n=1e6,s=0;
+
+  for(int i=1;i<=n;i++)
+  {
+      for(int j=i;j<=n;j+=i)
+      {
+         v[j].push_back(i);
+      }
+
+  }
+for(int i=1;i<=n;i++)
+{
+   for(auto u:v[i])cout<<u<<" ";
+   cout<<endl;
+}
+}
+
+solo speed 165 contest sieve problem
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6+5;
+int isprime[mx];
+
+void sieve()
+{
+    
+    for(int i=2;i<mx;i++)
+    {isprime[1]=1;
+    if(!isprime[i])
+        {
+            for(int j=i+i;j<mx;j+=i)
+        {
+            isprime[j]=1;
+        }
+    }
+    }
+
+}
+void solve()
+{
+    int n;
+      cin>>n;
+
+      int c=0,k=1,d=0;
+      while(n>0)
+      {
+          if(isprime[n]==0)
+          {
+              c++;
+              n=0;
+          }
+          else if(k<=n)
+          {
+              n-=k;
+              c++;
+              k*=2;
+          }
+          else {
+                cout<<-1<<endl;
+              return;
+          }
+      }
+     cout<<c<<endl;
+
+}
+ int main()
+    {
+        tawfiq();
+        sieve();
+        int t;
+        cin>>t;
+        while(t--)
+      {
+solve();
+      }
+    }
+
+
+sieve code form cps academy:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+
+#define endl '\n'
+#define ll long long
+const int mx=1e6;
+bool isprime[mx];
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {
+        for(int j=i+i;j<=n;j+=i)
+        {
+            isprime[j]=0;
+        }
+    }
+pries.puh_back(2);
+    for(int i=2;i<=n;i++ )
+    {
+        if(isprime[i]==1)primes.push_back(i);
+    }
+}
+ int main()
+    {
+        tawfiq();
+      int n=20;
+      sieve(n);
+      for(auto u:primes)cout<<u<<endl;
+    }
+
+
+//prime factorization:
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+bool isprime[mx];
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>prime_factor(int n)
+{int c=0;
+vector<int>factors;
+    for(auto u:primes)
+    {if((u*u)>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1){
+            factors.pb(n);
+    }
+    return factors;
+}
+int main()
+{
+    tawfiq();
+    int t;
+    cin>>t;
+while(t--)
+    {
+        int n;
+    cin>>n;
+    sieve(n);
+    vector<int>fac=prime_factor(n);
+for(auto u:fac)cout<<u<<" ";
+cout<<endl;
+}
+}
+
+
+
+
+
+
+
+
+prime factor problem cps academy:
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e6+1;
+bool isprime[mx];
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>prime_factor(int n)
+{int c=0;
+vector<int>factors;
+    for(auto u:primes)
+    {if((u*u)>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1){
+            factors.pb(n);
+    }
+    return factors;
+}
+int main()
+{
+    tawfiq();
+    int lim=1e6;
+
+    sieve(lim);
+    int n;
+    while(cin>>n)
+    {if(n==0)break;
+    bool isneg=false;
+    if(n<0)
+    {
+        isneg=true;
+        n*=-1;
+    }
+
+    vector<int>factors = prime_factor(n);
+    if(isneg)
+    {
+        n*=-1;
+        factors.insert(factors.begin(),-1);
+    }
+    cout<<n<<" = "<<factors[0];
+    for(int i=1;i<factors.size();i++)cout<<" x "<<factors[i];
+    cout<<endl;
+
+}
+}
+
+prime generation with 1e7 numbrs along with 
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define pb push_back
+#define endl '\n'
+#define ll long long
+const int mx=1e7+1;
+bitset<mx>isprime;
+vector<int>primes;
+
+void sieve(int n)
+{
+    for(int i=3;i<=mx;i+=2)isprime[i]=1;
+int sq=sqrt(n);
+for(int i=3;i<=sq;i+=2)
+{
+    if(isprime[i]==1)
+    {
+        for(int j=i*i;j<=n;j+=i)
+    {
+        isprime[j]=0;
+    }
+    }
+}
+isprime[2]=1;
+primes.pb(2);
+for(int i=3;i<=n;i+=2)
+{
+  if(isprime[i]==1)  primes.pb(i);
+}
+}
+vector<int>v[mx];
+int main()
+{
+    tawfiq();
+  int lim=1e2;
+    sieve(lim);
+
+    for(auto u:primes)
+    {
+        for(int i=u;i<=lim;i+=u)
+        {int n=i;
+           while(n%u==0)
+           {
+               v[i].pb(u);
+               n/=u;
+           }
+        }
+    }
+    for(int i=1;i<=lim;i++)
+    {cout<<i<<" : ";
+    for(auto u:v[i])cout<<u<<" ";
+    cout<<endl;
+
+}
+}
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define ll long long
+#define pb push_back
+const int mx=50;
+bitset<mx>isprime;
+int cnt[mx];
+vector<int>v[mx];
+vector<int>primes;
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    isprime[2]=1;
+    primes.pb(2);
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i]==1)
+
+    {   for(int j=i*i;j<=n;j+=i)
+       {
+           isprime[j]=0;
+       }
+
+    }
+    }
+    for(int i=3;i<=n;i+=2)if(isprime[i]==1)primes.pb(i);
+
+}
+
+
+
+
+void nod(int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=i;j<=n;j+=i)
+        {
+            cnt[j]++;
+        }
+    }
+   for(int i=1;i<=n;i++)cout<<i<<" : "<<cnt[i]<<endl;;
+  // cout<<endl;
+}
+
+
+
+
+
+
+
+
+int node(int n)
+{int no=1;
+    for(auto u:primes)
+    {if(1LL*u*u>n)break;
+        if(n%u==0)
+        {
+            int c=0;
+            while(n%u==0)
+            {
+                c++;
+                n/=u;
+            }
+            c++;
+            no*=c;
+        }
+    }
+        if(n>1)no*=2;
+
+    return no;
+}
+
+
+
+
+vector<int>prime_factors(int n)
+{vector<int>factors;
+    for(auto u:primes)
+    {
+        if(1LL*u*u>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+                n/=u;
+                factors.pb(u);
+            }
+        }
+    }
+    if(n>1)factors.pb(n);
+    return factors;
+}
+
+
+
+
+int main()
+{
+    int lim=54;
+    sieve(lim);
+    for(auto u:primes)cout<<u<<" ";
+    cout<<endl;
+//    nod(lim);
+    cout<<node(lim)<<endl;
+    vector<int>v=prime_factors(lim);
+    for(auto u:v)cout<<u<<" ";
+}
+//prime factorization time complexity O(root(x)/ln(root (x)))
+
