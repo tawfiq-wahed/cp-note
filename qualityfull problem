@@ -1,0 +1,174 @@
+#TFC 4 AUST IUPC:color problem
+as per question:
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define orderedset tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=2e5+123;
+const ll inf=9000000000000000000;
+const int mx=1e9+7;
+int dx[]={0,1,-1,0};
+int dy[]={1,0,0,-1};
+void solve(int i)
+{
+    int n;
+    cin>>n;
+    multiset<int>st;
+    for(int i=0;i<n;i++)
+    {
+        int a;
+        cin>>a;
+        if(st.empty())
+        {
+            st.insert(a);
+        }
+        else
+        {
+    st.insert(a);
+            auto it=st.lower_bound(a);
+           
+            if(it!=st.begin())
+            {
+                it--;
+                st.erase(it);
+            }
+         
+        }
+
+      cout<<st.size()<<endl;
+    }
+
+}
+
+
+
+
+
+
+int main()
+ {tawfiq();
+int t;
+cin>>t;
+for(int i=1;i<=t;i++)
+{
+    solve(i);
+}
+ }
+
+
+
+
+
+
+
+if(<=)this code will be executed:
+include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define orderedset tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define sqr(a) ((a)*(a))
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=2e5+123;
+const ll inf=9000000000000000000;
+const int mx=1e9+7;
+int dx[]={0,1,-1,0};
+int dy[]={1,0,0,-1};
+void solve(int i)
+{
+    int n;
+    cin>>n;
+    multiset<int>st;
+    for(int i=0;i<n;i++)
+    {
+        int a;
+        cin>>a;
+        if(st.empty())
+        {
+            st.insert(a);
+        }
+        else
+        {
+    st.insert(a);
+            auto it=st.lower_bound(a);
+
+            if(it!=(--st.end())||(*st.begin()==*it))
+            {
+
+                st.erase(it);
+            }
+
+        }
+
+       cout<<st.size()<<endl;
+    }
+
+}
+
+
+
+
+
+
+int main()
+ {tawfiq();
+int t;
+cin>>t;
+for(int i=1;i<=t;i++)
+{
+    solve(i);
+}
+ }
