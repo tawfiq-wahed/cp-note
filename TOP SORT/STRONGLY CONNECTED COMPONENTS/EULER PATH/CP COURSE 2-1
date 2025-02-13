@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void tsort(int v,vector<vector<int>>&adj,vector<bool>&visited,stack<int>&st)
+{
+    visited[v]=1;
+    for(auto u:adj[v])
+    {
+        if(!visited[u])
+        {
+            tsort(u,adj,visited,st);
+        }
+
+    }
+    st.push(v);
+}
+vector<int>topsort(vector<vector<int>>&adj)
+{
+    int sz=adj.size();
+    stack<int>st;
+    vector<bool>visited(sz+1,0);
+    for(int i=1;i<sz;i++)
+    {
+        if(!visited[i])
+        {
+            tsort(i,adj,visited,st);
+        }
+    }
+    vector<int>ans;
+    while(!st.empty())
+    {
+        ans.push_back(st.top());
+        st.pop();
+    }
+    return ans;
+}
+/*
+
+    0
+   / \
+  3   2
+ / \   \ 
+4   5   6
+
+*/
+int main()
+{
+    vector<vector<int>>adj={{},{2,3},{6},{4,5},{},{},{}};
+    vector<int>ans=topsort(adj);
+    for(auto u:ans)cout<<u<<" ";
+    cout<<endl;
+}
