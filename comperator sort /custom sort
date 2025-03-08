@@ -79,3 +79,90 @@ void solve()
      }
 
  }
+
+//sort of set pair 
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define orderedset tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield);cout.precision(10);cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+#define for1(i,a,b) for(int i=a;i<=b;i++)
+#define cin1(v) for(auto &it:v)cin>>it;
+#define cout1(v) for(auto it:v)cout<<it<<" ";cout<<endl;
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a*b)/gcd(a,b)
+#define sqr(a) ((a)*(a))
+//c=(sqrt(1+8*n)-1)/2 nth value of n*(n+1)/2 less than given value
+typedef double dl;
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const double PI=acos(-1.0);
+const double eps=1e-9;
+const ll p=2e5+123;
+const int mx=998244353;
+const ll inf=9000000000000000000;
+
+
+
+
+
+int dx[]={2,1,-2,-1,-2,-1,2,1};
+int dy[]={-1,-2,1,2,-2,-1,2,1};
+bool vis[p];
+class cmp{
+public :
+    int operator()(pair<int,int> a ,pair<int,int> b)
+    {
+       if(a.F<b.F) return true;
+       else if(a.F==b.F)
+       {
+           if(a.S>b.S)return true;
+       }
+       else return false;
+    }
+    };
+void solve()
+{
+    set<pair<int,int>,cmp>st;
+    st.insert({5,6});
+    st.insert({9,4});
+    st.insert({44,3});
+    st.insert({11,3});
+    st.insert({11,4});
+    for(auto u:st)cout<<u.F<<" "<<u.S<<" "<<endl;
+}
+
+ int main()
+ {tawfiq();
+     int t;
+     t=1;
+//cin>>t;
+ while(t--)
+     {
+         solve();
+     }
+
+ }
+
