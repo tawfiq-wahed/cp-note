@@ -105,3 +105,113 @@ for(auto u:c)
        solve();
      }
   }
+
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#define orderedset tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq123() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define file() freopen("input.txt","r",stdin);
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+
+#define mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a*b)/gcd(a,b)
+#define sqr(a) ((a)*(a))
+
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+
+const ll p=5e5+123;
+const int mx=998244353;
+const ll inf=9000000000000000000;
+bool vis[p];
+/*
+ll add(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+}
+ll mul(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+ll binexpo(ll a,ll b)
+{
+    ll res=1;
+    if(b==0)return 1ll;
+    res=binexpo(a,b/2);
+    if(b%2)
+    {
+        res=mul(res,res);
+        res=mul(res,a);
+    }
+    else {
+            res=mul(res,res);
+    }
+    return res;
+}*/
+//existing all subset finding code with recusion and backtracking
+//backtracking function typically use void type return;otherwise it cause malfunctioning code
+
+void subset(int i,vector<int>&a,vector<vector<int>>&res,vector<int>seg)
+{
+ if(i==a.size())
+ {
+     res.pb(seg);
+     return ;
+ }
+ seg.pb(a[i]);
+ subset(i+1,a,res,seg);
+ seg.pop_back();
+ subset(i+1,a,res,seg);
+
+}
+void solve()
+{
+
+vector<int>a={1,2,3};
+vector<vector<int>>res;
+vector<int>seg;
+subset(0,a,res,seg);
+for(auto u:res)
+{
+    for(auto v:u)cout<<v<<" ";
+    cout<<endl;
+}
+}
+
+
+
+ int main()
+ {
+     tawfiq123();
+    int t=1;
+     //cin>>t;
+ while(t--)
+     {
+       solve();
+     }
+  }
+ time complexity(2^n*n^2)
+space complexity(2^n*n)
+auxilary space complexity(2^n)
