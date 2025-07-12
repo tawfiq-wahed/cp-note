@@ -116,4 +116,113 @@ while(q--)
      }
   }
 
-Range sum with lazy propagation changing a certail range value then answer the the range sum
+Range sum with lazy propagation changing a certail range value then answer the the range sum:
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+
+#define tawfiq123() ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define ll long long
+#define endl '\n'
+#define all(a) (a).begin(), (a).end()
+
+const int mx = 2e5 + 123;
+ll seg[4 * mx], prop[4 * mx];
+bool vis[4 * mx];
+vector<ll> v(mx);
+
+void build(int index, int left, int right) {
+    if (left == right) {
+        seg[index] = v[left];
+        return;
+    }
+    int mid = (left + right) / 2;
+    build(2 * index, left, mid);
+    build(2 * index + 1, mid + 1, right);
+    seg[index] = seg[2 * index] + seg[2 * index + 1];
+}
+
+void shifting(int index, int left, int right) {
+    if (vis[index]) {
+        int mid = (left + right) / 2;
+        int left_child = 2 * index;
+        int right_child = 2 * index + 1;
+
+        prop[left_child] += prop[index];
+        prop[right_child] += prop[index];
+
+        seg[left_child] += (mid - left + 1) * prop[index];
+        seg[right_child] += (right - mid) * prop[index];
+
+        vis[left_child] = vis[right_child] = true;
+
+        prop[index] = 0;
+        vis[index] = false;
+    }
+}
+
+void update(int index, int left, int right, int l, int r, ll val) {
+    if (r < left || l > right) return;
+
+    if (l <= left && right <= r) {
+        seg[index] += (right - left + 1) * val;
+        prop[index] += val;
+        vis[index] = true;
+        return;
+    }
+
+    shifting(index, left, right);
+
+    int mid = (left + right) / 2;
+    update(2 * index, left, mid, l, r, val);
+    update(2 * index + 1, mid + 1, right, l, r, val);
+
+    seg[index] = seg[2 * index] + seg[2 * index + 1];
+}
+
+ll query(int index, int left, int right, int l, int r) {
+    if (r < left || l > right) return 0;
+
+    if (l <= left && right <= r) return seg[index];
+
+    shifting(index, left, right);
+
+    int mid = (left + right) / 2;
+    return query(2 * index, left, mid, l, r) +
+           query(2 * index + 1, mid + 1, right, l, r);
+}
+
+void solve() {
+    int n, q;
+    cin >> n >> q;
+    for (int i = 1; i <= n; i++) cin >> v[i];
+    build(1, 1, n);
+
+    while (q--) {
+        int type;
+        cin >> type;
+        if (type == 1) {
+            int l, r;
+            ll x;
+            cin >> l >> r >> x;
+            update(1, 1, n, l, r, x);
+        } else if (type == 2) {
+            int l, r;
+            cin >> l >> r;
+            cout << query(1, 1, n, l, r) << endl;
+        }
+    }
+}
+
+int main() {
+    tawfiq123();
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+        solve();
+    }
+}
+
