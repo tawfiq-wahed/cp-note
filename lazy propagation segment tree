@@ -116,4 +116,4 @@ while(q--)
      }
   }
 
-
+Range sum with lazy propagation changing a certail range value then answer the the range sum
