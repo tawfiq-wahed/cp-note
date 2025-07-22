@@ -1,0 +1,50 @@
+// C++ program to Find all distinct subsets
+// of a given set using BitMasking Approach
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> printUniqueSubsets(vector<int>& arr) {
+    int n = arr.size();
+    vector<vector<int>> res;
+    set<vector<int>> set;
+    
+    // Sort the array to ensure sorted subsets
+    sort(arr.begin(), arr.end());
+    
+    int total = 1 << n;
+    
+    // Generate each subset using bitmasking
+    for (int i = 0; i < total; i++) {
+        vector<int> subset;
+        
+        // Check each bit of i
+        for (int j = 0; j < n; j++) {
+            
+            // If jth bit is set, include arr[j] 
+            // in the current subset
+            if (i & (1 << j)) {
+                subset.push_back(arr[j]);
+            }
+        }
+        
+        // Add the subset to set to handle duplicates
+        set.insert(subset);
+    }
+    
+    // Add all unique subsets from set to result vector
+    for (auto it : set) {
+        res.push_back(it);
+    }
+    
+    return res;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 2};
+    vector<vector<int>> res = printUniqueSubsets(arr);
+    for (auto v: res) {
+        for (auto u: v) cout << u << " ";
+        cout << endl;
+    }
+    return 0;
+}
