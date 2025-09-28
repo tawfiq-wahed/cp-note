@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+#include<cmath>
+using namespace std;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+#define orderedset tree<pair<int,int>, null_type,less<pair<int,int>>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define endl '\n'
+#define F first
+//#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+#define mem(a,b) memset(a,b,sizeof(a))
+int mx=2e5+123;
+#define PI acos(-1.0)
+vector<bool>vis(mx,0);
+void sieve(int n)
+{
+    for(int i=3;i<=n;i+=2)vis[i]=1;
+    vis[2]=1;
+    for(int i=3;i*i<=n;i+=2)
+    {
+        if(vis[i])
+        {
+            for(int j=i*i;j<=n;j+=i)
+            {
+                vis[j]=0;
+            }
+        }
+    }
+}
+void solve(int t1)
+{
+double a,b,c;
+while(cin>>a>>b>>c)
+{double s=(a+b+c)/2.0000;
+//cout<<s<<endl;
+double areatriangle=sqrt(max(0.0,s*(s-a)*(s-b)*(s-c)));
+double outercircleradius=(a*b*c)/(4.0000*areatriangle);
+double innercircleradius=areatriangle/s;
+double d,e,f;
+
+e=PI*outercircleradius*outercircleradius;
+f=PI*innercircleradius*innercircleradius;
+//cout<<f<<endl;
+d=e-areatriangle;
+cout<<fixed<<setprecision(4)<<d<<" "<<areatriangle-f<<" "<<f<<endl;
+}
+
+}
+
+
+ int main()
+ {
+     tawfiq();
+    int t=1;
+//cin>>t;
+//sieve(mx);
+for(int i=1;i<=t;i++)
+     {
+       solve(i);
+     }
+  }
