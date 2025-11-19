@@ -1,4 +1,4 @@
-//strongly connected component code with dsu cps academy dsu class
+//connected code with dsu cps academy dsu class
 
 #include<bits/stdc++.h>
 using namespace std;
