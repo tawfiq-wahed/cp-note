@@ -30,21 +30,24 @@ vector<ll>adj[mx];
 bool vis[mx];
 
 int par[123];
-
+vector<int>sz;
 
 int find_par(int u)
 {
     if(par[u]==u)return u;
-    return par[u]=find_par(par[u);
+    return par[u]=find_par(par[u]);
 }
 void Union(int u,int v)
 {
+    if(sz[u]<sz[v])swap(u,v);
     par[v]=u;
+    sz[u]+=sz[v];
 }
 void solve()
 {
 int n,m,u,v;
 cin>>n>>m;
+sz.resize(n,1);//subtree er size union by size/or rank
 for(int i=1;i<=n;i++)par[i]=i;
 while(m--)
 {
