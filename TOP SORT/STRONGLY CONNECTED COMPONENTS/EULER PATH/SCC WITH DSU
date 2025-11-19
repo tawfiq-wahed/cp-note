@@ -35,7 +35,7 @@ int par[123];
 int find_par(int u)
 {
     if(par[u]==u)return u;
-    return par[u];
+    return par[u]=find_par(par[u);
 }
 void Union(int u,int v)
 {
@@ -53,7 +53,7 @@ while(m--)
     int vR=find_par(v);
     if(uR!=vR)
     {
-        Union(u,v);
+        Union(uR,vR);
     }
 }
 for(int i=1;i<=n;i++)
