@@ -1,0 +1,131 @@
+//https://cses.fi/problemset/task/1753/
+#include<bits/stdc++.h>
+#include<cmath>
+#include<cstring>
+#include<numeric>
+#include <algorithm>
+using namespace std;
+#define orderedset tree<pair<int,int>, null_type,less<pair<int,int>>, rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define file() freopen("input.txt","r",stdin);
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+#define endl '\n'
+#define F first
+#define S second
+#define pb push_back
+#define ll long long
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+
+#define mod 1000000007
+#define mod1 1000000009
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) a*b/gcd(a,b)
+#define sqr(a) ((a)*(a))
+typedef vector<int>vi;
+typedef vector<ll>vll;
+typedef pair<int,int>pii;
+typedef pair<ll,ll>pll;
+typedef vector<pair<int,int>>vpii;
+typedef vector<pair<ll,ll>>vpll;
+const ll inf=1e18;
+const int mx=1e6+123;
+
+
+ll mul(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+
+ll add(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+}
+ll binexpo(ll a,ll b)
+{
+   ll res=1ll;
+   if(b==0)return 1ll;
+   res=binexpo(a,b/2);
+   if(b%2)
+   {
+       res=mul(res,res);
+       res=mul(res,a);
+   }
+   else res=mul(res,res);
+   return res;
+}
+ll pw[mx];
+ll inv[mx];
+ll hashi[mx];
+void precal()
+{
+    pw[0]=1;
+    ll base=30;
+    for(int i=1;i<mx;i++)
+    {
+        pw[i]=mul(pw[i-1],base);
+    }
+        ll inv_p=binexpo(base,mod-2);
+        inv[0]=1;
+        for(int i=1;i<mx;i++)
+    {
+        inv[i]=mul(inv[i-1],inv_p);
+    }
+}
+void build(string s)
+{
+    int n=s.size();
+    mem(hashi,0);
+    for(int i=0;i<n;i++)
+    {
+       hashi[i]=add((i==0)?0:hashi[i-1],mul(pw[i],s[i]-'a'+1));
+
+    }
+}
+ll gethash(int l,int r)
+{
+   ll res=add(hashi[r],-((l==0)?0:hashi[l-1]));
+   res=mul(res,inv[l]);
+   return res;
+}
+
+void solve()
+{
+string s,k;
+cin>>s>>k;
+
+build(k);
+
+ll rr=gethash(0,k.size()-1);
+mem(hashi,0);
+int c=0;
+build(s);
+
+for(int i=0;i+k.size()-1<s.size();i++)
+{
+    ll ff=gethash(i,i+k.size()-1);
+   // cout<<ff<< " "<<rr<<endl;
+    if(rr==ff)c++;
+
+}
+cout<<c<<endl;
+}
+
+
+
+ int main()
+ {
+     tawfiq();
+    int t=1;
+//cin>>t;
+precal();
+//sieve(1000000);
+for(int i=1;i<=t;i++)
+     {
+       solve();
+     }
+     }
