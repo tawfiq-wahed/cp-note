@@ -1,0 +1,116 @@
+//Grundy sprunge theorem:
+#include<bits/stdc++.h>
+using namespace std;
+#define  mod 998244353
+#define mem(a,b)  memeset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a/gcd(a,b))*b
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ll long long
+#define pb push_back
+#define endl '\n'
+#define all(a) (a).begin(),(a).end()
+#define F first
+#define rall(a) (a).rbegin(),(a).rend()
+#define S second
+typedef vector<ll>vll;
+typedef vector<pair<ll,ll>>vpll;
+const ll inf=1000000000000000000;
+int mx=1000005;
+ll mul(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+/*
+vector<bool>isprime(mx+1,0);
+vector<ll>primes;
+void sieve(ll n)
+{isprime[2]=1;
+    for(ll i=3;i<=n;i+=2)isprime[i]=1;
+    for(ll i=2;i*i<=n;i++)
+    {
+        if(isprime[i])
+        {
+            for(ll j=i*i;j<=n;j+=i)
+            {
+                isprime[j]=0;
+            }
+        }
+    }
+    primes.pb(2);
+    for(ll i=3;i<=n;i++)
+    {
+        if(isprime[i])primes.pb(i);
+    }
+}
+vector<ll> v;
+void fact(ll n)
+{
+  for(auto u:primes)
+  {
+      if(1ll*u*u>n)break;
+if(n%u==0)
+      {while(n%u==0)
+      {
+          n/=u;
+          v.pb(u);
+      }
+      }
+  }
+  if(n>1)v.pb(n);
+
+}*/
+ll binexpo(ll a,ll b)
+{
+    if(b==0)return 1;
+    ll res=1;
+    res=binexpo(a,b/2);
+    if(b%2){
+            res=mul(res,res);
+            res=mul(res,a);
+    }
+    else res=mul(res,res);
+    return res;
+}
+ll mex(const unordered_set<ll>&st)
+{
+    ll x=0;
+    while(st.count(x))x++;
+    return x;
+}
+int c=0;
+ll grundy(ll n,ll k)
+{
+    if(n==0)return 0;
+    unordered_set<ll>st;
+    for(int i=1;i<=k;i++)
+    {
+        if(n-i>=0)st.insert(grundy(n-i,k));
+    }
+   // cout<<"case: "<< c<<endl;c++;
+   // for(auto u:st)cout<<u<<" ";
+   // cout<<endl;
+    return mex(st);
+}
+
+void solve()
+{
+ll n;
+cin>>n;
+ll k=3;
+cout<<grundy(n,k);
+}
+
+
+int main()
+{
+tawfiq();
+
+int t;t=1;
+//cin>>t;
+
+for(int i=1;i<=t;i++)
+{
+    solve();
+}
+}
