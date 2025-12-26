@@ -1,0 +1,154 @@
+//CF :1062 div 4 (F)
+#include<bits/stdc++.h>
+using namespace std;
+#define  mod 998244353
+#define mem(a,b)  memeset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a/gcd(a,b))*b
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ll long long
+#define pb push_back
+#define endl '\n'
+#define all(a) (a).begin(),(a).end()
+#define F first
+#define rall(a) (a).rbegin(),(a).rend()
+#define S second
+typedef vector<ll>vll;
+typedef vector<pair<ll,ll>>vpll;
+const ll inf=1000000000000000000;
+
+// ll mul(ll a,ll b)
+// {
+//     return ((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+// }
+// ll add(ll a,ll b)
+// {
+//     return ((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+// }
+
+// vector<bool>isprime(mx+1,0);
+// vector<ll>primes;
+// void sieve(ll n)
+// {isprime[2]=1;
+//     for(ll i=3;i<=n;i+=2)isprime[i]=1;
+//     for(ll i=2;i*i<=n;i++)
+//     {
+//         if(isprime[i])
+//         {
+//             for(ll j=i*i;j<=n;j+=i)
+//             {
+//                 isprime[j]=0;
+//             }
+//         }
+//     }
+//     primes.pb(2);
+//     for(ll i=3;i<=n;i++)
+//     {
+//         if(isprime[i])primes.pb(i);
+//     }
+// }
+
+// pair<ll,ll>pf(ll n)
+// {ll ans=0,ans1=0;
+// if(n==1)
+// {
+//     ans1+=0;
+//     ans+=0;
+//     return {ans,ans1};
+// }
+//   for(auto u:primes)
+//   {
+//       if(1ll*u*u>n)break;
+// if(n%u==0)
+//       {while(n%u==0)
+//       {
+//           n/=u;
+//         if(u==2)ans+=2ll;
+//         else ans1+=u;
+//       }
+//       }
+//   }
+//   if(n>1)
+//     { 
+//         if(n==2)ans+=n;
+//         else ans1+=n;
+//     }
+
+//     return {ans1,ans};
+
+// }
+ll n,k,u,v;
+vll adj[200002];
+ll dp[200002];
+ll ans[200002];
+vector<bool>vis(200000+2,0),vis1(200000+2,0);
+void dfs(ll v)
+{
+    vis[v]=1;
+    dp[v]=1;
+    for(auto u:adj[v])
+    {
+        if(!vis[u])
+    {
+        dfs(u);
+        dp[v]+=dp[u];
+        
+    }
+ 
+    }
+ 
+}
+void dfs1(ll v)
+{
+    vis1[v]=1;
+    for(auto u:adj[v])
+    {
+        if(!vis1[u])
+        {int c=0;
+           if(n-dp[u]<k)c--;
+           if(dp[u]<k)c++;
+           ans[u]=ans[v]+c;
+           dfs1(u);
+        }
+    }
+}
+void solve(int tc,int t5)
+{
+
+cin>>n>>k;
+memset(dp,sizeof(dp),0);
+for(int i=0;i<=n;i++)vis[i]=0,vis1[i]=0,ans[i]=0,adj[i].clear();
+for(int i=0;i<n-1;i++)
+{
+    cin>>u>>v;
+    adj[u].pb(v);
+    adj[v].pb(u);
+}
+dfs(1);
+for(int i=1;i<=n;i++)if(dp[i]>=k)ans[1]++;
+dfs1(1);
+ll z=0;
+for(int i=1;i<=n;i++)cout<<ans[i]<<" ";
+    cout<<endl;
+for(int i=1;i<=n;i++)z+=ans[i];
+    cout<<z<<endl;
+
+}
+
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+#endif
+int t;
+t=1;
+cin>>t;
+//sieve(mx);
+for(int i=1;i<=t;i++)
+{
+    solve(i,t);
+}
+  
+}
