@@ -18,9 +18,9 @@ typedef vector<int>vi;
 const ll inf=1000000000000000000;
 int dx[]={0,1,0,-1};
 int dy[]={1,0,-1,0};
-int inv=0;
-void merger(vector<int>&v,int l,int mid,int r)
-{
+//int inv=0;
+int merger(vector<int>&v,int l,int mid,int r)
+{int inv=0;
     int n1=mid-l+1;
     int n2=r-mid;
     vector<int>left(n1),right(n2);
@@ -55,15 +55,18 @@ void merger(vector<int>&v,int l,int mid,int r)
         j++;
         k++;
     }
+    return inv;
 
 }
-void mergesort(vector<int>&v,int l,int r)
+int mergesort(vector<int>&v,int l,int r)
 {
-    if(l>=r)return;
+    if(l>=r)return 0;
     int mid=(l+r)/2;
-    mergesort(v,l,mid);
-    mergesort(v,mid+1,r);
-    merger(v,l,mid,r);
+    int inv=0;
+    inv+=mergesort(v,l,mid);
+    inv+=mergesort(v,mid+1,r);
+    inv+=merger(v,l,mid,r);
+    return inv;
 }
 void solve(int tc,int t5)
 {
@@ -71,10 +74,10 @@ int n,a;
 cin>>n;
 vi v;
 for(int i=0;i<n;i++)cin>>a,v.pb(a);
-mergesort(v,0,n-1);
-for(auto u:v)cout<<u<<" ";
-cout<<endl;
-cout<<inv<<endl;
+
+
+cout<<mergesort(v,0,n-1);
+
 }
 
 
