@@ -1,3 +1,4 @@
+//both can count the inversion but 2nd one is easier to count inversion
 #include<bits/stdc++.h>
 using namespace std;
 #define  mod 998244353
@@ -93,4 +94,117 @@ for(int i=1;i<=t;i++)
 {
     solve(i,t);}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define  mod 998244353
+#define mem(a,b)  memeset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a/gcd(a,b))*b
+#define there_is_no_lord_without_Allah(); ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ll long long
+#define pb push_back
+#define endl '\n'
+#define all(a) (a).begin(),(a).end()
+#define F first
+#define rall(a) (a).rbegin(),(a).rend()
+#define S second
+typedef vector<ll>vll;
+typedef vector<pair<ll,ll>>vpll;
+typedef vector<int>vi;
+const ll inf=1000000000000000000;
+int dx[]={0,1,0,-1};
+int dy[]={1,0,-1,0};
+int inv=0;
+int merger(vector<int>&v,int l,int mid,int r)
+{
+    int n1=mid-l+1;
+    int n2=r-mid;
+    vector<int>left(n1),right(n2);
+    for(int i=0;i<n1;i++)left[i]=v[l+i];
+    for(int i=0;i<n2;i++)right[i]=v[mid+1+i];
+    int k=l,i=0,j=0;
+    while(i<n1 &&j<n2 )
+    {
+        if(left[i]<=right[j])
+        {
+            v[k]=left[i];
+            i++;
+            k++;
+        }
+        else
+        {
+            v[k]=right[j];
+            j++;
+            k++;
+            inv+=(n1-i);
+        }
+    }
+    while(i<n1)
+    {
+        v[k]=left[i];
+        i++;
+        k++;
+    }
+    while(j<n2)
+    {
+        v[k]=right[j];
+        j++;
+        k++;
+    }
+
+}
+void mergesort(vector<int>&v,int l,int r)
+{
+    if(l>=r)return;
+    int mid=(l+r)/2;
+    mergesort(v,l,mid);
+    mergesort(v,mid+1,r);
+    merger(v,l,mid,r);
+}
+void solve(int tc,int t5)
+{
+int n,a;
+cin>>n;
+vi v;
+for(int i=0;i<n;i++)cin>>a,v.pb(a);
+mergesort(v,0,n-1);
+for(auto u:v)cout<<u<<" ";
+cout<<endl;
+cout<<inv<<endl;
+}
+
+
+int main()
+{
+    there_is_no_lord_without_Allah();
+int t;
+t=1;
+//cin>>t;
+
+
+for(int i=1;i<=t;i++)
+{
+    solve(i,t);}
+}
+
+
+
+
+
+
+
 
