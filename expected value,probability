@@ -17,5 +17,22 @@ void ncr()
         }
     }
 }
+1072 div3 D shundor problem:eita bit er sathe combination
 
-1072 div3 D shundor problem
+vll fact(100005,0);
+vll invfact(100005,0);
+void factorial()
+{
+    fact[0]=1;
+    for(int i=1;i<=100000;i++)
+    {
+        fact[i]=mul(i,fact[i-1]);
+        invfact[i]=binexpo(fact[i],mod-2);
+    }
+
+}
+ll ncr(ll n,ll r)
+{
+    return(mul(fact[n],mul(invfact[r],invfact[n-r])));
+}
+
