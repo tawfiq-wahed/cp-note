@@ -1,0 +1,148 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define  mod 1000000007
+#define mem(a,b) memset(a,b,sizeof(a))
+#define gcd(a,b) __gcd(a,b)
+#define lcm(a,b) (a/gcd(a,b))*b
+#define tawfiq(); ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ll long long
+#define pb push_back
+#define endl '\n'
+#define all(a) (a).begin(),(a).end()
+#define F first
+#define rall(a) (a).rbegin(),(a).rend()
+#define S second
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+
+typedef tree<ll, null_type, less<ll>, rb_tree_tag,
+            tree_order_statistics_node_update>
+    ordered_set;
+
+typedef vector<ll>vll;
+typedef vector<pair<ll,ll>>vpll;
+typedef vector<int>vi;
+const ll inf=1000000000000000000;
+int dx[]={0,1,0,-1};
+int dy[]={1,0,-1,0};
+int mx=2e5+12;
+ll mul(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+ll add(ll a,ll b)
+{
+    return ((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+}
+ll binexpo(ll a,ll b)
+{
+    if(b==0)return 1;
+    ll res=1;
+    res=binexpo(a,b/2);
+    if(b%2)
+    {
+        res=mul(res,res);
+        res=mul(res,a);
+    }
+    else res=mul(res,res);
+   // cout<<b<<" "<<res<<endl;
+    return res;
+}
+
+vll fact(100005,0);
+vll invfact(100005,0);
+void factorial()
+{
+    fact[0]=1;
+    for(int i=1;i<=100000;i++)
+    {
+        fact[i]=mul(i,fact[i-1]);
+        invfact[i]=binexpo(fact[i],mod-2);
+    }
+
+}
+ll ncr(ll n,ll r)
+{
+    return(mul(fact[n],mul(invfact[r],invfact[n-r])));
+}
+vector<bool>vis;
+void solve(int tc,int t5)
+{
+
+ll n;
+cin>>n;
+ll k=sqrt(n);
+vll v(n),v2(n),v1;
+ll c=0,f=0;
+for(int i=0;i<n;i++)cin>>v[i],v2[i]=v[i];
+for(int i=1;i<n;i++)v2[i]+=v2[i-1];
+
+for(int i=0;i<n;i++)
+{
+    c++;
+
+    if(c==k)
+    {
+        v1.pb(v2[i]-f);
+        c=0;
+        f=v2[i];
+    }
+}
+if(c)v1.pb(v2[n-1]-f);
+for(auto u:v1)cout<<u<<" ";
+cout<<endl;
+int q;
+cin>>q;
+int l,r,x;
+while(q--)
+{
+    cin>>x>>l>>r;
+    //ll x=l/k;
+
+
+    ll ans=0;
+    if(x==1)
+    { l--,r--;
+    while(l%k!=0)ans+=v[l],l++;
+
+    while(l+k<=r)
+    {
+        ans+=v1[l/k];
+        l+=k;
+    }
+   //    cout<<ans<<endl;
+    while(l<=r)
+    {
+        ans+=v[l];
+        l++;
+    }
+    cout<<ans<<endl;
+    }
+    else
+    { l--;
+        ll x=l/k;
+
+        ans=v1[x]-v[l]+r;
+      //  cout<<ans<<endl;
+        v1[x]=ans;
+        v[l]=r;
+        cout<<v1[x]<<endl;
+    }
+}
+}
+
+int main()
+{
+    tawfiq();
+   // factorial();
+int t;
+t=1;
+cin>>t;
+
+for(int i=1;i<=t;i++)
+{
+    solve(i,t);}
+}
+
