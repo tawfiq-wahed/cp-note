@@ -1,0 +1,93 @@
+class no 26:
+
+
+#include<bits/stdc++.h>
+#include<cmath>
+using namespace std;
+#define ll long long
+#define endl '\n'
+#define orderedset tree<pair<ll,ll>,null_type,less<pair<ll,ll>>,rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define F first
+#define S second
+#define pb push_back
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+typedef vector<ll>vll;
+typedef  vector<int>vi;
+typedef pair<ll,ll>pll;
+typedef vector<pair<ll,ll>>vpll;
+#define gcd(a,b) __gcd(a,b)
+#define mod 1000000007
+#define lcm(a,b) ((a/gcd(a,b))*b)
+#define mem(a,b) memset(a,b,sizeof(a))
+const ll inf=1e18;
+const int p=2e5+123;
+
+ll mul(ll a ,ll b)
+{
+    return((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+ll add(ll a ,ll b)
+{
+    return((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+}
+double binexpo(double a ,int b)
+{
+    if(b==0)return 1.000;
+    double res=1.000;
+    res=binexpo(a,b/2);
+    if(b%2==0) return res=res*res;
+    else return res=res*res*a;
+
+}
+ll n,k;
+vll v1;
+ll dp[11][100][100][3];
+ll dpmama(ll i,ll m1,ll m2,ll flag)
+{
+    if(i==n)return (m1==0 &&m2==0);
+    if(dp[i][m1][m2][flag]!=-1)return dp[i][m1][m2][flag];
+    int lim=(flag)?9 :v1[i];
+    ll res=0;
+    for(int j=0;j<=lim;j++)
+    {
+        res+=dpmama(i+1,((m1*10+j)%k),(m2+j)%k,((flag)||j<v1[i]));
+    }
+    return dp[i][m1][m2][flag]=res;
+}
+
+void solve(int tc ,int t5)
+{
+  ll l,r;
+  cin>>l>>r>>k;
+  auto check=[&](ll f)
+  {v1.clear();
+      while(f)v1.pb(f%10),f/=10;
+      n=v1.size();
+      reverse(all(v1));
+      mem(dp,-1);
+      return dpmama(0,0,0,0);
+  };
+  cout<<"Case "<<tc<<": ";
+  cout<<check(r)-check(l-1);
+  if(tc!=t5)cout<<endl;
+}
+int main()
+{
+     tawfiq();
+  int t;
+  t=1;
+  cin>>t;
+  for(int i=1;i<=t;i++)
+  {
+      solve(i,t);
+  }
+}
+// 1 2 3 4 6 2 1 
+//155 =10^2*1+10^1*5+5*1
+//(10*1+5)*10+5*1;
+//15 =1*10+5 ->
