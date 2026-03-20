@@ -257,3 +257,7 @@ int main()
       solve(i,t);
   }
 }
+
+
+
+//iterative /top down approach
