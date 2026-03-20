@@ -1,0 +1,127 @@
+//EID SALAMI CONTEST 2026 F
+//with 1D
+#include<bits/stdc++.h>
+#include<cmath>
+using namespace std;
+#define ll long long
+#define endl '\n'
+#define orderedset tree<pair<ll,ll>,null_type,less<pair<ll,ll>>,rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+#define F first
+#define S second
+#define pb push_back
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+typedef vector<ll>vll;
+typedef  vector<int>vi;
+typedef pair<ll,ll>pll;
+typedef vector<pair<ll,ll>>vpll;
+#define gcd(a,b) __gcd(a,b)
+const ll mod=1e9+7;
+#define lcm(a,b) ((a/gcd(a,b))*1ll*b)
+#define mem(a,b) memset(a,b,sizeof(a))
+const ll INF=1e18;
+const int p1=1e5+123;
+
+ll mul(ll a ,ll b,ll mod)
+{
+    return((((a%mod)+mod)%mod)*(((b%mod)+mod)%mod))%mod;
+}
+ll add(ll a ,ll b,ll mod)
+{
+    return((((a%mod)+mod)%mod)+(((b%mod)+mod)%mod))%mod;
+}
+ll binexpo(ll a ,ll b,ll c)
+{
+    if(b==0)return 1ll;
+   ll res=1;
+    res=binexpo(a,b/2,c);
+    if(b%2==0) return res=mul(res,res,c);
+    else return res=mul(res,mul(res,a,c),c);
+
+}
+
+vector<bool>isprime(p1,0);
+vector<int>primes;
+void sieve(int n)
+{
+    isprime[2]=1;
+    primes.pb(2);
+    for(int i=3;i<=n;i+=2)isprime[i]=1;
+    int sq=sqrt(n);
+    for(int i=3;i<=sq;i+=2)
+    {if(isprime[i])
+        {
+            for(int j=i*i;j<=n;j+=i)
+        {
+           isprime[j]=0;
+        }
+        }
+    }
+    for(int i=3;i<=n;i+=2){
+            if(isprime[i]==1)
+    {
+        primes.pb(i);
+    }
+    }
+}
+map<ll,ll>cnt,cnt1;
+void pf(int n)
+{
+    for(auto u:primes)
+    {if((u*u)>n)break;
+        if(n%u==0)
+        {
+            while(n%u==0)
+            {
+
+                n/=u;
+               cnt[u]=1;
+            }
+        }
+    }
+    if(n>1){
+            cnt[n]=1;
+    }
+}
+
+void solve(int tc ,int t5)
+{
+//int n;
+string t="chokudai";
+string s;
+cin>>s;
+int n=s.size();
+vll dp(9,0);
+dp[0]=1;
+for(int i=0;i<n;i++)
+{
+    for(int j=0;j<8;j++)
+    {
+        if(s[i]==t[j])
+        {
+            dp[j+1]=add(dp[j],dp[j+1],mod);
+            break;
+        }
+    }
+}
+cout<<dp[8]<<endl;
+}
+
+
+
+int main()
+{
+     tawfiq();
+
+  int t;
+  t=1;
+  //cin>>t;
+  for(int i=1;i<=t;i++)
+  {
+      solve(i,t);
+  }
+}
