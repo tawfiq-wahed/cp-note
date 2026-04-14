@@ -1,4 +1,3 @@
-//Trie for insert,search word,prefsearch,prefsearch count
 #include<bits/stdc++.h>
 #include<cmath>
 using namespace std;
@@ -26,21 +25,26 @@ const ll INF=1e18;
 const int p1=1e5+123;
 #define sz 26
 //trie nam er struct use korle policy and gnu pbds kete dite hobe 
-struct trie{
-trie* child[26];
-bool ending;
-int wcnt;
+struct trie
+{
+    trie* child[sz];
+    bool ending;
+    int wcnt;
+    int endcnt=0
 };
-
 trie* get()
 {
     trie* node=new trie;
     node->ending=false;
     node->wcnt=0;
-    for(int i=0;i<sz;i++)node->child[i]=nullptr;
+    node->endcount=0;
+    for(int i=0;i<26;i++)
+    {
+        node->child[i]=nullptr;
+    }
     return node;
 }
-void insert(trie* root, string s)
+void insert(trie* root,string s)
 {
     trie* node=root;
     for(int i=0;i<s.size();i++)
@@ -52,33 +56,52 @@ void insert(trie* root, string s)
         }
         node=node->child[idx];
         node->wcnt++;
-
     }
     node->ending=true;
+    node->endcnt++;
 }
-bool search(trie* root ,string s)
+bool search(trie* root,string s)
 {
     trie* node=root;
     for(int i=0;i<s.size();i++)
-    { int idx=s[i]-'a';
+    {
+        int idx=s[i]-'a';
         if(node->child[idx]==nullptr)
         {
             return 0;
         }
         node=node->child[idx];
     }
-    return (node!=nullptr &&node->ending);
+   if(node!=nullptr && node->ending)node->endcount;
 }
-int pref(trie* root, string s)
+int pref(trie* root,string s)
 {
     trie* node=root;
     for(int i=0;i<s.size();i++)
-    {   int idx=s[i]-'a';
+    {
+        int idx=s[i]-'a';
         if(node->child[idx]==nullptr)return 0;
         node=node->child[idx];
     }
     return node->wcnt;
 }
+bool del(trie *root,string s)
+{
+    trie* node=root;
+    vector<trie*>path;
+    for(int i=0;i<s.size();i++)
+    {
+        if(node->child[idx]==nullptr)return 0;
+        node=node->child[idx];
+        path.pb(node);
+    }
+    if(node->endcnt==0)return 0;
+    node->endcnt--;
+    node->ending=(node-endcnt>0);
+    for(int i=0;i<path.size();i++)path[i]->wcnt--;
+    return true;
+} 
+
 void solve(int tc ,int t5)
 {
   trie* root=get();
@@ -89,8 +112,10 @@ void solve(int tc ,int t5)
       insert(root,s[i]);
   }
   cout<<(search(root,"Subha")?"LOVE" :"HATE")<<endl;
-  cout<<(search(root,"Naba")?"HATE" :"HATE")<<endl;
+  cout<<(search(root,"Naba")<<endl;
   cout<<pref(root,"As")<<endl;
+  cout<<del(root,"As")<<endl;
+  cout<<(search(root,"As")<<endl;
 }
 
 
