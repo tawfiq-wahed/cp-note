@@ -1,0 +1,111 @@
+//Trie for insert,search word,prefsearch,prefsearch count
+#include<bits/stdc++.h>
+#include<cmath>
+using namespace std;
+#define ll long long
+#define endl '\n'
+#define orderedset tree<pair<ll,ll>,null_type,less<pair<ll,ll>>,rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#include<ext/pb_ds/assoc_container.hpp>
+//#include<ext/pb_ds/tree_policy.hpp>
+//using namespace __gnu_pbds;
+#define F first
+#define S second
+#define pb push_back
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+typedef vector<ll>vll;
+typedef  vector<int>vi;
+typedef pair<ll,ll>pll;
+typedef vector<pair<ll,ll>>vpll;
+#define gcd(a,b) __gcd(a,b)
+const ll mod=1000000007;
+#define lcm(a,b) ((a/gcd(a,b))*1ll*b)
+#define mem(a,b) memset(a,b,sizeof(a))
+const ll INF=1e18;
+const int p1=1e5+123;
+#define sz 26
+//trie nam er struct use korle policy and gnu pbds kete dite hobe 
+struct trie{
+trie* child[26];
+bool ending;
+int wcnt;
+};
+
+trie* get()
+{
+    trie* node=new trie;
+    node->ending=false;
+    node->wcnt=0;
+    for(int i=0;i<sz;i++)node->child[i]=nullptr;
+    return node;
+}
+void insert(trie* root, string s)
+{
+    trie* node=root;
+    for(int i=0;i<s.size();i++)
+    {
+        int idx=s[i]-'a';
+        if(node->child[idx]==nullptr)
+        {
+            node->child[idx]=get();
+        }
+        node=node->child[idx];
+        node->wcnt++;
+
+    }
+    node->ending=true;
+}
+bool search(trie* root ,string s)
+{
+    trie* node=root;
+    for(int i=0;i<s.size();i++)
+    { int idx=s[i]-'a';
+        if(node->child[idx]==nullptr)
+        {
+            return 0;
+        }
+        node=node->child[idx];
+    }
+    return (node!=nullptr &&node->ending);
+}
+int pref(trie* root, string s)
+{
+    trie* node=root;
+    for(int i=0;i<s.size();i++)
+    {   int idx=s[i]-'a';
+        if(node->child[idx]==nullptr)return 0;
+        node=node->child[idx];
+    }
+    return node->wcnt;
+}
+void solve(int tc ,int t5)
+{
+  trie* root=get();
+  string s[5];
+  for(int i=0;i<5;i++)
+  {
+      cin>>s[i];
+      insert(root,s[i]);
+  }
+  cout<<(search(root,"Subha")?"LOVE" :"HATE")<<endl;
+  cout<<(search(root,"Naba")?"HATE" :"HATE")<<endl;
+  cout<<pref(root,"As")<<endl;
+}
+
+
+
+
+int main()
+{
+     tawfiq();
+ //  sieve(200000);
+  int t;
+  t=1;
+ cin>>t;
+
+  for(int i=1;i<=t;i++)
+  {
+      solve(i,t);
+  }
+}
