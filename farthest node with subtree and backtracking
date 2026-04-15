@@ -1,0 +1,66 @@
+//farthest node distance in a tree with subtree check :
+
+#include<bits/stdc++.h>
+#include<cmath>
+using namespace std;
+#define ll long long
+#define endl '\n'
+#define orderedset tree<pair<ll,ll>,null_type,less<pair<ll,ll>>,rb_tree_tag,tree_order_statistics_node_update>
+#define tawfiq() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#include<ext/pb_ds/assoc_container.hpp>
+//#include<ext/pb_ds/tree_policy.hpp>
+//using namespace __gnu_pbds;
+#define F first
+#define S second
+#define pb push_back
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+typedef vector<ll>vll;
+typedef  vector<int>vi;
+typedef pair<ll,ll>pll;
+typedef vector<pair<ll,ll>>vpll;
+#define gcd(a,b) __gcd(a,b)
+const ll mod=1000000007;
+#define lcm(a,b) ((a/gcd(a,b))*1ll*b)
+#define mem(a,b) memset(a,b,sizeof(a))
+const ll INF=1e18;
+const int p1=1e5+123;
+#define sz 26
+
+void solve(int tc ,int t5)
+{
+  int n,m,k;
+  cin>>n>>m>>k;
+  int u,v;
+  level.assign(n+1,0);
+  for(int i=0;i<=n;i++)vis[i]=0,adj[i].clear(),v1[i].clear();
+  for(int i=0;i<n-1;i++)
+  {
+      cin>>u>>v;
+      adj[u].pb(v);
+      adj[v].pb(u);
+  }
+  dfs(1);
+  cout<<ans<<endl;
+}
+
+     1
+    / \
+   2   3
+  / \ / \
+ 5  7 8  6
+
+// 4 distance
+int main()
+{
+     tawfiq();
+ //  sieve(200000);
+  int t;
+  t=1;
+ cin>>t;
+
+  for(int i=1;i<=t;i++)
+  {
+      solve(i,t);
+  }
+}
