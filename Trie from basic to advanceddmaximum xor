@@ -134,3 +134,83 @@ int main()
       solve(i,t);
   }
 }
+
+
+maximum xor with trie:
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define sz 2
+#define vll vector<ll>
+
+struct trie {
+    trie* child[2];
+    trie() {
+        child[0] = child[1] = nullptr;
+    }
+};
+
+trie* get() {
+    return new trie();
+}
+
+void insert(trie* root, ll n) {
+    trie* node = root;
+    for (int i = 31; i >= 0; i--) {
+        int bit = (n >> i) & 1;
+        if (node->child[bit] == nullptr) {
+            node->child[bit] = get();
+        }
+        node = node->child[bit];
+    }
+}
+
+ll query(trie* root, ll n) {
+    trie* node = root;
+    ll ans = 0;
+    for (int i = 31; i >= 0; i--) {
+        int bit = (n >> i) & 1;
+        int want = 1 - bit;
+
+        if (node->child[want]) {
+            ans |= (1LL << i);
+            node = node->child[want];
+        } else {
+            node = node->child[bit];
+        }
+    }
+    return ans;
+}
+
+void solve() {
+    trie* root = get();
+
+    int n;
+    cin >> n;
+
+    vll v(n);
+    for (auto &u : v) cin >> u;
+
+    ll ans = 0;
+   ll pref=0;
+    insert(root,0);
+
+    for (int i = 0; i < n; i++) {
+            pref^=v[i];
+        ans = max(ans, query(root, pref));
+        insert(root, pref);
+    }
+
+    cout << ans << endl;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) solve();
+}
+
