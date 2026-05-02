@@ -1,0 +1,45 @@
+
+ll add(ll a, ll b, ll mod)
+{
+    return (ll)(((a % mod + mod) % mod + (b % mod + mod) % mod) % mod);
+}
+
+ll dec(ll a, ll b, ll mod)
+{
+    return (ll)(((a % mod + mod) % mod - (b % mod + mod) % mod + mod) % mod);
+}
+
+ll mul(ll a, ll b, ll mod)
+{
+    return (ll)((__int128)((a % mod + mod) % mod) * ((b % mod + mod) % mod) % mod);
+}
+ll binexpo(ll a,ll b,ll mod)
+{
+    ll res = 1 % mod;
+    a %= mod;
+
+    while(b)
+    {
+        if(b & 1) res =mul(res, a, mod);
+        a = mul(a, a, mod);
+        b >>= 1;
+    }
+    return res;
+}
+
+vll fact(100005,0);
+vll invfact(100005,0);
+void factorial(ll mod)
+{
+    fact[0]=1;
+    for(int i=1;i<=100000;i++)
+    {
+        fact[i]=mul(i,fact[i-1],mod);
+        invfact[i]=binexpo(fact[i],mod-2,mod);
+    }
+
+}
+ll ncr(ll n,ll r,ll mod)
+{
+    return(mul(fact[n],mul(invfact[r],invfact[n-r],mod),mod));
+}
