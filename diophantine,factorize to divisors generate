@@ -1,0 +1,33 @@
+ p*a +q*b=ab //p=a+d,q=b+(ab/d);
+
+void fact(ll n,map<ll,ll>&cnt)
+{
+    for(int i=2;i*i<=n;i++)
+    {
+      if(n%i==0)
+      {
+          while(n%i==0)
+          {
+              cnt[i]++;
+              n/=i;
+          }
+      }
+    }
+    if(n>1)cnt[n]++;
+}
+void get_div(int idx,ll cur,vector<pair<ll,ll>>&fac,vector<ll>&div)
+{
+    if(idx==fac.size())
+    {
+        div.pb(cur);
+        return;
+    }
+    ll x=fac[idx].F;
+    ll y=fac[idx].S;
+    ll val=1;
+    for(int i=0;i<=y;i++)
+    {
+        get_div(idx+1,cur*val,fac,div);
+        val*=x;
+    }
+}
