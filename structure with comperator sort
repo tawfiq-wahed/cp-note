@@ -1,0 +1,11 @@
+struct info
+{   int x,y;
+    info(){}
+    info(int x,int y):x(x),y(y){}
+    bool operator<(const info &others)const{
+      if(x!=other.x)
+      {   return x<other.x;
+          return y<other.y;
+      }
+    }
+};
